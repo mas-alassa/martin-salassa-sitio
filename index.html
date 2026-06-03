@@ -318,6 +318,18 @@
       margin-bottom: 40px;
     }
 
+    /* ─── Acordeón Qué hago ─────────────────────── */
+    .accordion-trigger {
+      background: none; border: none; padding: 0;
+      font-family: var(--font-body); font-size: 1rem; font-weight: 600;
+      color: var(--black); letter-spacing: .01em;
+      cursor: none; margin-top: 32px;
+      display: inline-block;
+      transition: opacity .2s;
+    }
+    .accordion-trigger:hover { opacity: .6; }
+    .accordion-body { margin-top: 28px; }
+
     /* ─── Dónde puedo sumar ──────────────────────── */
     #donde-sumo {
       background: var(--gray-50);
@@ -695,10 +707,15 @@
         <p class="intro-text reveal reveal-delay-2">
           Las piezas de la empresa empiezan a encajar mejor y el dueño puede concentrarse en lo que realmente importa: el futuro del negocio.
         </p>
-        <div class="body-text reveal reveal-delay-3">
-          <p>Me aseguro de que todo marche sobre ruedas, desde la estrategia general hasta las tareas del día a día.</p>
-          <p>Me meto en el negocio, entiendo cómo funciona, y busco todos los días cómo hacerlo mejor y más barato. A veces es grande: reorganizar un equipo, cambiar cómo se vende, rediseñar cómo llega el producto al cliente. A veces es chico: una reunión que no debería existir, un proceso que tarda el doble de lo que debería.</p>
-          <p>Superviso proyectos y plazos. Me aseguro de que cada área sepa qué tiene que hacer y para cuándo. Y cuando distintos departamentos necesitan hablar o resolver algo juntos, soy el que hace que esa conversación pase.</p>
+        <div class="reveal reveal-delay-3">
+          <button class="accordion-trigger" id="que-hago-trigger" aria-expanded="false" aria-controls="que-hago-body">
+            Conocer más ↓
+          </button>
+          <div class="body-text accordion-body" id="que-hago-body" hidden>
+            <p>Me aseguro de que todo marche sobre ruedas, desde la estrategia general hasta las tareas del día a día.</p>
+            <p>Me meto en el negocio, entiendo cómo funciona, y busco todos los días cómo hacerlo mejor y más barato. A veces es grande: reorganizar un equipo, cambiar cómo se vende, rediseñar cómo llega el producto al cliente. A veces es chico: una reunión que no debería existir, un proceso que tarda el doble de lo que debería.</p>
+            <p>Superviso proyectos y plazos. Me aseguro de que cada área sepa qué tiene que hacer y para cuándo. Y cuando distintos departamentos necesitan hablar o resolver algo juntos, soy el que hace que esa conversación pase.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -985,6 +1002,22 @@
       });
     }, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    /* ─── Acordeón ──────────────────────── */
+    const trigger = document.getElementById('que-hago-trigger');
+    const body    = document.getElementById('que-hago-body');
+    trigger.addEventListener('click', () => {
+      const open = trigger.getAttribute('aria-expanded') === 'true';
+      if (open) {
+        body.hidden = true;
+        trigger.setAttribute('aria-expanded', 'false');
+        trigger.textContent = 'Conocer más ↓';
+      } else {
+        body.hidden = false;
+        trigger.setAttribute('aria-expanded', 'true');
+        trigger.textContent = 'Cerrar ↑';
+      }
+    });
 
     /* ─── KPI counter ────────────────────── */
     const easeOut = t => 1 - Math.pow(1 - t, 3);
