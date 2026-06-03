@@ -1,0 +1,11 @@
+# Node (servidor de preview local)
+node_modules/
+.cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.swp
