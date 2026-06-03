@@ -260,67 +260,43 @@
       color: var(--black); margin-bottom: 56px;
     }
 
-    /* ─── Figure wrap (Quién soy + Qué hago) ────── */
-    .figure-wrap {
-      display: flex;
-      align-items: stretch;
-    }
-
-    .figure-sections {
-      flex: 1 1 0;
-      min-width: 0; /* prevent text overflow */
-    }
-
+    /* ─── Quién soy ─────────────────────────────── */
     #quien-soy { background: var(--gray-50); }
-    #que-hago  { background: var(--white); border-top: 1px solid var(--gray-100); }
 
-    /* Figure column — same height as both sections */
-    .figure-col {
-      flex: 0 0 40%;
-      width: 40%;
-      pointer-events: none;
-      /* Gradient that roughly matches the two section backgrounds */
-      background: linear-gradient(to bottom,
-        var(--gray-50) 0%, var(--gray-50) 45%,
-        var(--white)   55%, var(--white)  100%);
+    .quien-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(48px, 6vw, 88px);
+      align-items: center;
+      max-width: var(--max-w);
+      margin: 0 auto;
     }
 
-    .figure-sticky {
-      position: sticky;
-      top: 0;
-      height: 100vh;
+    .quien-photo {
       display: flex;
       align-items: flex-end;
       justify-content: center;
-      overflow: visible;
+      height: clamp(420px, 65vh, 680px);
     }
 
-    /* Subtle bottom fade anchors the feet */
-    .figure-sticky::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 100px;
-      background: linear-gradient(to top, var(--white) 0%, transparent 100%);
-      pointer-events: none;
-      z-index: 2;
-    }
-
-    #figure-img {
-      height: 90vh;
+    .quien-photo img {
+      height: 100%;
       width: auto;
-      max-width: none;
       object-fit: contain;
       object-position: bottom center;
       display: block;
       transform-origin: bottom center;
       will-change: transform;
-      filter: drop-shadow(-20px 0 60px rgba(0,0,0,0.10));
-      position: relative;
-      z-index: 1;
+      filter: drop-shadow(-12px 0 40px rgba(0,0,0,0.09));
+      transition: transform 0.8s cubic-bezier(0.16,1,0.3,1);
+    }
+    /* Subtle lift on hover */
+    .quien-photo:hover img {
+      transform: translateY(-8px) scale(1.01);
     }
 
-    .about-grid { display: block; }
+    /* ─── Qué hago ───────────────────────────────── */
+    #que-hago { background: var(--white); border-top: 1px solid var(--gray-100); }
     .intro-text {
       font-family: var(--font-body);
       font-size: clamp(1.0625rem,1.6vw,1.1875rem);
@@ -540,16 +516,18 @@
       .service-row { grid-template-columns: 120px 1fr; }
       .service-desc { grid-column: 2; }
     }
-    @media (max-width: 1100px) {
-      .figure-col { flex: 0 0 34%; width: 34%; }
-    }
-    @media (max-width: 960px) {
-      /* Switch to block — hide figure */
-      .figure-wrap    { display: block; }
-      .figure-sections { display: block; }
-      .figure-col     { display: none; }
-      .case-item      { grid-template-columns: 1fr; }
-      .case-metrics   { flex-direction: row; flex-wrap: wrap; text-align: left; gap: 32px; }
+    @media (max-width: 900px) {
+      /* Quién soy: stack vertically, image below text */
+      .quien-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .quien-photo {
+        height: clamp(280px, 55vw, 400px);
+        justify-content: flex-start;
+      }
+      .case-item     { grid-template-columns: 1fr; }
+      .case-metrics  { flex-direction: row; flex-wrap: wrap; text-align: left; gap: 32px; }
     }
     @media (max-width: 640px) {
       :root { --header-h: 64px; }
@@ -664,54 +642,42 @@
       </div>
     </div>
 
-    <!-- ─── Figure wrap: Quién soy + Qué hago ── -->
-    <div class="figure-wrap">
-    <div class="figure-sections">
-
-      <section id="quien-soy" aria-labelledby="quien-soy-heading">
-        <div class="container">
-          <div class="about-grid">
-            <div class="about-text">
-              <p class="section-tag reveal">— Quién soy</p>
-              <h2 class="big-statement reveal reveal-delay-1" id="quien-soy-heading" style="max-width:600px">
-                Soy el jugador que conecta las piezas y hace funcionar mejor al equipo.
-              </h2>
-              <div class="body-text reveal reveal-delay-2">
-                <p>Como el volante central en el fútbol. Llevo 15 años metido en empresas: arrancando de cero, haciendo crecer lo que ya existía, y atravesando todo lo que pasa en el medio. Cofundé negocios, viví y trabajé en distintos países, armé equipos, vendí una compañía, y aprendí más de los momentos difíciles que de los buenos.</p>
-                <p>No vengo de una sola industria ni de un solo tipo de empresa. Eso, con el tiempo, se convierte en una ventaja: entro a un negocio nuevo y entiendo rápido cómo funciona.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="que-hago" aria-labelledby="que-hago-heading">
-        <div class="container">
-          <p class="section-tag reveal">— Qué hago</p>
-          <h2 class="big-statement reveal reveal-delay-1" id="que-hago-heading">
-            Lo que cambia cuando estoy.
+    <!-- ─── Quién soy ─────────────────────── -->
+    <section id="quien-soy" aria-labelledby="quien-soy-heading">
+      <div class="quien-grid" style="padding: 0 var(--pad-x);">
+        <div class="quien-text">
+          <p class="section-tag reveal">— Quién soy</p>
+          <h2 class="big-statement reveal reveal-delay-1" id="quien-soy-heading">
+            Soy el jugador que conecta las piezas y hace funcionar mejor al equipo.
           </h2>
-          <p class="intro-text reveal reveal-delay-2">
-            Las piezas de la empresa empiezan a encajar mejor y el dueño puede concentrarse en lo que realmente importa: el futuro del negocio.
-          </p>
-          <div class="body-text reveal reveal-delay-3">
-            <p>Me aseguro de que todo marche sobre ruedas, desde la estrategia general hasta las tareas del día a día.</p>
-            <p>Me meto en el negocio, entiendo cómo funciona, y busco todos los días cómo hacerlo mejor y más barato. A veces es grande: reorganizar un equipo, cambiar cómo se vende, rediseñar cómo llega el producto al cliente. A veces es chico: una reunión que no debería existir, un proceso que tarda el doble de lo que debería.</p>
-            <p>Superviso proyectos y plazos. Me aseguro de que cada área sepa qué tiene que hacer y para cuándo. Y cuando distintos departamentos necesitan hablar o resolver algo juntos, soy el que hace que esa conversación pase.</p>
+          <div class="body-text reveal reveal-delay-2">
+            <p>Como el volante central en el fútbol. Llevo 15 años metido en empresas: arrancando de cero, haciendo crecer lo que ya existía, y atravesando todo lo que pasa en el medio. Cofundé negocios, viví y trabajé en distintos países, armé equipos, vendí una compañía, y aprendí más de los momentos difíciles que de los buenos.</p>
+            <p>No vengo de una sola industria ni de un solo tipo de empresa. Eso, con el tiempo, se convierte en una ventaja: entro a un negocio nuevo y entiendo rápido cómo funciona.</p>
           </div>
         </div>
-      </section>
-
-    </div><!-- /.figure-sections -->
-
-      <!-- Figura sticky: ocupa ambas secciones -->
-      <div class="figure-col" aria-hidden="true">
-        <div class="figure-sticky">
-          <img id="figure-img" src="Prueba-cuerpo-entero.png" alt="" />
+        <div class="quien-photo reveal reveal-delay-3">
+          <img src="Prueba-cuerpo-entero.png" alt="Martín Salassa" />
         </div>
       </div>
+    </section>
 
-    </div>
+    <!-- ─── Qué hago ──────────────────────── -->
+    <section id="que-hago" aria-labelledby="que-hago-heading">
+      <div class="container">
+        <p class="section-tag reveal">— Qué hago</p>
+        <h2 class="big-statement reveal reveal-delay-1" id="que-hago-heading">
+          Lo que cambia cuando estoy.
+        </h2>
+        <p class="intro-text reveal reveal-delay-2">
+          Las piezas de la empresa empiezan a encajar mejor y el dueño puede concentrarse en lo que realmente importa: el futuro del negocio.
+        </p>
+        <div class="body-text reveal reveal-delay-3">
+          <p>Me aseguro de que todo marche sobre ruedas, desde la estrategia general hasta las tareas del día a día.</p>
+          <p>Me meto en el negocio, entiendo cómo funciona, y busco todos los días cómo hacerlo mejor y más barato. A veces es grande: reorganizar un equipo, cambiar cómo se vende, rediseñar cómo llega el producto al cliente. A veces es chico: una reunión que no debería existir, un proceso que tarda el doble de lo que debería.</p>
+          <p>Superviso proyectos y plazos. Me aseguro de que cada área sepa qué tiene que hacer y para cuándo. Y cuando distintos departamentos necesitan hablar o resolver algo juntos, soy el que hace que esa conversación pase.</p>
+        </div>
+      </div>
+    </section>
 
     <!-- ─── Dónde puedo sumar ─────────────── -->
     <section id="donde-sumo" aria-labelledby="donde-sumo-heading">
@@ -925,51 +891,11 @@
     let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
     const lerp = (a, b, t) => a + (b - a) * t;
 
-    /* ─── Figure parallax + tilt ──────────────── */
-    let figScrollY = 0;
-    let figTiltX   = 0;
-    let figTiltY   = 0;
-    let figScale   = 1;
-    const figImg   = document.getElementById('figure-img');
-    const figWrap  = document.querySelector('.figure-wrap');
-
-    function updateFigure() {
-      if (!figImg) return;
-      figImg.style.transform =
-        `perspective(1200px) translateY(${figScrollY}px) rotateX(${figTiltX}deg) rotateY(${figTiltY}deg) scale(${figScale})`;
-    }
-
-    /* Parallax: figure moves at ~35% of scroll speed through the wrap */
-    window.addEventListener('scroll', () => {
-      if (!figWrap || !figImg) return;
-      const rect    = figWrap.getBoundingClientRect();
-      const total   = figWrap.offsetHeight + window.innerHeight;
-      const passed  = window.innerHeight - rect.top; // px scrolled past the top of wrap
-      const progress = Math.max(0, Math.min(1, passed / total));
-      figScrollY    = (progress - 0.5) * -140; // ±70px — figure drifts upward as you scroll down
-      figScale      = 1 + progress * 0.04;     // subtle scale: 1.0 → 1.04
-      updateFigure();
-    }, { passive: true });
 
     document.addEventListener('mousemove', e => {
       mouseX = e.clientX; mouseY = e.clientY;
       dot.style.left = mouseX + 'px';
       dot.style.top  = mouseY + 'px';
-
-      /* Figure 3D tilt — only when over the figure-wrap area */
-      if (figImg && figWrap) {
-        const rect = figWrap.getBoundingClientRect();
-        const inWrap = e.clientY >= rect.top && e.clientY <= rect.bottom;
-        if (inWrap) {
-          const cx  = window.innerWidth  / 2;
-          const cy  = (rect.top + rect.bottom) / 2;
-          figTiltY  = ((e.clientX - cx) / cx) * 7;   // ±7° horizontal
-          figTiltX  = ((cy - e.clientY) / (rect.height / 2)) * 4; // ±4° vertical
-        } else {
-          figTiltX = figTiltY = 0; // reset outside wrap
-        }
-        updateFigure();
-      }
 
       /* Cursor dark detection */
       const under = document.elementFromPoint(mouseX, mouseY);
