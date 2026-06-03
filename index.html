@@ -290,17 +290,18 @@
       align-self: stretch;
       padding: 40px 0 0;
       overflow: hidden;
-      /* Fade edges: top, right y bottom desvanecen a transparente */
-      -webkit-mask-image:
-        linear-gradient(to right,  black 55%, transparent 100%),
-        linear-gradient(to bottom, black 80%, transparent 100%),
-        linear-gradient(to top,    black 90%, transparent 100%);
-      -webkit-mask-composite: source-in, source-in;
-      mask-image:
-        linear-gradient(to right,  black 55%, transparent 100%),
-        linear-gradient(to bottom, black 80%, transparent 100%),
-        linear-gradient(to top,    black 90%, transparent 100%);
-      mask-composite: intersect, intersect;
+      position: relative;
+    }
+
+    /* Overlay que cubre el borde derecho con el mismo color del fondo */
+    .quien-photo::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; bottom: 0;
+      width: 28%;
+      background: linear-gradient(to left, var(--gray-50) 30%, transparent 100%);
+      pointer-events: none;
+      z-index: 2;
     }
 
     .quien-photo img {
