@@ -262,44 +262,27 @@
 
     /* ─── Figure wrap (Quién soy + Qué hago) ────── */
     .figure-wrap {
-      position: relative;
-      overflow: hidden;
+      display: flex;
+      align-items: stretch;
     }
 
-    /* Sections sit in normal flow, figure overlaps from right */
-    #quien-soy {
-      background: var(--gray-50);
-      position: relative;
-      z-index: 1;
-    }
-    #que-hago {
-      background: var(--white);
-      border-top: 1px solid var(--gray-100);
-      position: relative;
-      z-index: 1;
+    .figure-sections {
+      flex: 1 1 0;
+      min-width: 0; /* prevent text overflow */
     }
 
-    /* Sections leave room on the right for the figure */
-    #quien-soy .container,
-    #que-hago .container {
-      max-width: 680px;
-    }
+    #quien-soy { background: var(--gray-50); }
+    #que-hago  { background: var(--white); border-top: 1px solid var(--gray-100); }
 
-    /* Figure column: absolute, full height of both sections */
+    /* Figure column — same height as both sections */
     .figure-col {
-      position: absolute;
-      right: 0; top: 0; bottom: 0;
-      width: 42%;
+      flex: 0 0 40%;
+      width: 40%;
       pointer-events: none;
-      z-index: 2;
-      /* Gradient background matching sections */
-      background: linear-gradient(
-        to bottom,
-        var(--gray-50) 0%,
-        var(--gray-50) 50%,
-        var(--white) 50%,
-        var(--white) 100%
-      );
+      /* Gradient that roughly matches the two section backgrounds */
+      background: linear-gradient(to bottom,
+        var(--gray-50) 0%, var(--gray-50) 45%,
+        var(--white)   55%, var(--white)  100%);
     }
 
     .figure-sticky {
@@ -312,33 +295,32 @@
       overflow: visible;
     }
 
-    /* Bottom fade — anchors the feet to the "floor" */
+    /* Subtle bottom fade anchors the feet */
     .figure-sticky::after {
       content: '';
       position: absolute;
       bottom: 0; left: 0; right: 0;
-      height: 120px;
-      background: linear-gradient(to top, var(--white), transparent);
+      height: 100px;
+      background: linear-gradient(to top, var(--white) 0%, transparent 100%);
       pointer-events: none;
+      z-index: 2;
     }
 
     #figure-img {
-      height: 88vh;
+      height: 90vh;
       width: auto;
-      max-width: 100%;
+      max-width: none;
       object-fit: contain;
       object-position: bottom center;
       display: block;
       transform-origin: bottom center;
       will-change: transform;
-      filter: drop-shadow(-16px 0 48px rgba(0,0,0,0.10));
+      filter: drop-shadow(-20px 0 60px rgba(0,0,0,0.10));
       position: relative;
       z-index: 1;
     }
 
     .about-grid { display: block; }
-
-    /* ─── Qué hago ─── (z-index set above in figure-wrap block) */
     .intro-text {
       font-family: var(--font-body);
       font-size: clamp(1.0625rem,1.6vw,1.1875rem);
@@ -559,20 +541,15 @@
       .service-desc { grid-column: 2; }
     }
     @media (max-width: 1100px) {
-      /* Tablet: shrink figure column, containers use full width */
-      .figure-col { width: 36%; }
-      #quien-soy .container,
-      #que-hago .container { max-width: 580px; }
+      .figure-col { flex: 0 0 34%; width: 34%; }
     }
     @media (max-width: 960px) {
-      /* Mobile/small tablet: hide figure entirely */
-      .figure-col    { display: none; }
-      #quien-soy .container,
-      #que-hago .container { max-width: var(--max-w); }
-      .about-grid    { grid-template-columns: 1fr; }
-      .about-photo   { max-width: 280px; }
-      .case-item     { grid-template-columns: 1fr; }
-      .case-metrics  { flex-direction: row; flex-wrap: wrap; text-align: left; gap: 32px; }
+      /* Switch to block — hide figure */
+      .figure-wrap    { display: block; }
+      .figure-sections { display: block; }
+      .figure-col     { display: none; }
+      .case-item      { grid-template-columns: 1fr; }
+      .case-metrics   { flex-direction: row; flex-wrap: wrap; text-align: left; gap: 32px; }
     }
     @media (max-width: 640px) {
       :root { --header-h: 64px; }
@@ -689,6 +666,7 @@
 
     <!-- ─── Figure wrap: Quién soy + Qué hago ── -->
     <div class="figure-wrap">
+    <div class="figure-sections">
 
       <section id="quien-soy" aria-labelledby="quien-soy-heading">
         <div class="container">
@@ -723,6 +701,8 @@
           </div>
         </div>
       </section>
+
+    </div><!-- /.figure-sections -->
 
       <!-- Figura sticky: ocupa ambas secciones -->
       <div class="figure-col" aria-hidden="true">
