@@ -293,16 +293,6 @@
       position: relative;
     }
 
-    /* Overlay que cubre el borde derecho con el mismo color del fondo */
-    .quien-photo::after {
-      content: '';
-      position: absolute;
-      top: 0; right: 0; bottom: 0;
-      width: 28%;
-      background: linear-gradient(to left, var(--gray-50) 30%, transparent 100%);
-      pointer-events: none;
-      z-index: 2;
-    }
 
     .quien-photo img {
       /* Fill the column: full width, auto height → person is large */
@@ -312,7 +302,6 @@
       object-position: bottom center;
       display: block;
       filter: drop-shadow(-10px 0 36px rgba(0,0,0,0.09));
-      mix-blend-mode: multiply;   /* funde el blanco del PNG con el fondo */
       transition: transform 0.7s cubic-bezier(0.16,1,0.3,1);
     }
     .quien-photo:hover img {
@@ -691,7 +680,7 @@
           </div>
         </div>
         <div class="quien-photo reveal reveal-delay-3">
-          <img src="Foto4.png" alt="Martín Salassa" />
+          <img src="Foto4-transparent.png" alt="Martín Salassa" />
         </div>
       </div>
     </section>
