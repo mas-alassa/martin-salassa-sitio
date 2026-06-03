@@ -261,38 +261,53 @@
     }
 
     /* ─── Quién soy ─────────────────────────────── */
-    #quien-soy { background: var(--gray-50); }
+    #quien-soy {
+      background: var(--gray-50);
+      padding: 0; /* padding handled by grid children */
+    }
 
     .quien-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(48px, 6vw, 88px);
-      align-items: center;
       max-width: var(--max-w);
       margin: 0 auto;
+      display: grid;
+      grid-template-columns: 56% 44%;
+      min-height: 88vh;
+      align-items: stretch;
+      padding: 0 var(--pad-x);
     }
+
+    .quien-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(80px, 8vw, 120px) clamp(40px, 4vw, 72px) clamp(80px, 8vw, 120px) 0;
+    }
+
+    /* Reset margins for children inside quien-text */
+    .quien-text .section-tag  { margin-bottom: 24px; }
+    .quien-text .big-statement { margin-bottom: 40px; }
 
     .quien-photo {
       display: flex;
       align-items: flex-end;
       justify-content: center;
-      height: clamp(420px, 65vh, 680px);
+      overflow: visible;
+      padding-top: 48px;
     }
 
     .quien-photo img {
-      height: 100%;
+      height: 84vh;
       width: auto;
+      max-width: 100%;
       object-fit: contain;
       object-position: bottom center;
       display: block;
+      filter: drop-shadow(-10px 0 40px rgba(0,0,0,0.09));
       transform-origin: bottom center;
-      will-change: transform;
-      filter: drop-shadow(-12px 0 40px rgba(0,0,0,0.09));
-      transition: transform 0.8s cubic-bezier(0.16,1,0.3,1);
+      transition: transform 0.7s cubic-bezier(0.16,1,0.3,1);
     }
-    /* Subtle lift on hover */
     .quien-photo:hover img {
-      transform: translateY(-8px) scale(1.01);
+      transform: translateY(-10px) scale(1.015);
     }
 
     /* ─── Qué hago ───────────────────────────────── */
@@ -517,14 +532,30 @@
       .service-desc { grid-column: 2; }
     }
     @media (max-width: 900px) {
-      /* Quién soy: stack vertically, image below text */
+      /* Quién soy: single column */
+      #quien-soy { padding: clamp(60px, 8vw, 100px) var(--pad-x) 0; }
       .quien-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
+        display: block;
+        min-height: unset;
+        padding: 0;
       }
+      .quien-text {
+        padding: 0 0 clamp(48px, 6vw, 64px);
+      }
+      /* Image: centered, proportional, feels intentional */
       .quien-photo {
-        height: clamp(280px, 55vw, 400px);
-        justify-content: flex-start;
+        justify-content: center;
+        padding-top: 0;
+        /* Constrain so image doesn't go full-width and look odd */
+        max-width: 320px;
+        margin: 0 auto;
+        padding-bottom: clamp(48px, 8vw, 80px);
+      }
+      .quien-photo img {
+        height: auto;
+        width: 100%;
+        max-height: 70vw;
+        object-fit: contain;
       }
       .case-item     { grid-template-columns: 1fr; }
       .case-metrics  { flex-direction: row; flex-wrap: wrap; text-align: left; gap: 32px; }
@@ -644,7 +675,7 @@
 
     <!-- ─── Quién soy ─────────────────────── -->
     <section id="quien-soy" aria-labelledby="quien-soy-heading">
-      <div class="quien-grid" style="padding: 0 var(--pad-x);">
+      <div class="quien-grid">
         <div class="quien-text">
           <p class="section-tag reveal">— Quién soy</p>
           <h2 class="big-statement reveal reveal-delay-1" id="quien-soy-heading">
