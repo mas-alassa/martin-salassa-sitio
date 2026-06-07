@@ -1,0 +1,148 @@
+# martinsalassa.com/tech — Copy final
+
+---
+
+## HERO
+
+**Etiqueta:**
+Hola. Soy Martín.
+
+**H1:**
+Busco sumarme a una compañía donde la operación todavía depende mucho de los founders.
+
+**Subtítulo:**
+Convierto la visión de la compañía en ejecución concreta.
+
+**CTA:** Hablemos →
+
+---
+
+## QUIÉN SOY
+
+**Etiqueta de sección:** — Quién soy
+
+**H2:**
+Trabajo en la intersección entre ejecución, sistemas y crecimiento.
+
+**Cuerpo:**
+Llevo 15 años metiéndome en empresas de tecnología en etapa de escala. Arranqué negocios de cero, operé en cinco países, atravesé una pandemia con ingresos en cero, y vendí una compañía. No desde un deck. Desde adentro.
+
+No soy especialista en una sola área. Soy el operador que trabaja de forma transversal con Producto, Tecnología, Diseño, Growth, Finanzas y Operaciones, enfocado en alineación, ownership y ejecución sostenible.
+
+---
+
+## QUÉ CAMBIA CUANDO ESTOY
+
+**Etiqueta de sección:** — Qué hago
+
+**H2:**
+Las compañías dejan de crecer cuando no se transforma la ejecución en sistemas.
+
+**Cuerpo:**
+Mi rol suele ser el mismo: entrar en contextos de alta velocidad y transformar el caos en estructuras operativas que puedan escalar sin volverse frágiles.
+
+- Equipos que avanzan rápido pero con responsabilidades difusas.
+- Decisiones que se postergan para evitar fricción.
+- Sistemas que dependen más del esfuerzo individual que de la estructura.
+
+---
+
+## DÓNDE PUEDO SUMAR
+
+**Etiqueta de sección:** — Dónde puedo sumar
+
+**H2:**
+Los problemas que puedo ayudar a resolver.
+
+**1. OPERACIONES DEL DÍA A DÍA**
+Problema: Cuando el founder opera el negocio en lugar de construirlo.
+Descripción: Me hago cargo de que todo funcione. Libero al founder de la operación diaria para que pueda enfocarse en el futuro de la compañía.
+
+**2. COORDINACIÓN Y SOPORTE**
+Problema: Cuando cada área avanza por su lado.
+Descripción: Coordino Producto, Tech, Growth y Operaciones para que trabajen alineados y las prioridades tengan sentido para el negocio.
+
+**3. EFICIENCIA Y CRECIMIENTO**
+Problema: Cuando los procesos actuales no alcanzan para la etapa que viene.
+Descripción: Analizo procesos, elimino lo que no agrega valor, y rediseño la forma de trabajar para que el equipo haga más con menos fricción.
+
+**4. PERFORMANCE DE NEGOCIO**
+Problema: Cuando las decisiones se toman sin datos.
+Descripción: Armo los tableros, defino los KPIs que importan, y establezco la cadencia para tomar decisiones con datos — incluyendo P&L, unit economics y eficiencia operativa.
+
+**5. TRANSFORMACIÓN OPERACIONAL**
+Problema: Cuando la visión existe pero nadie sabe cómo ejecutarla.
+Descripción: Convierto las decisiones en sistemas concretos. Procesos, cadencias, rituales — todo lo que hace que lo que se decide realmente pase.
+
+---
+
+## EXPERIENCIA
+
+**Etiqueta de sección:** — Experiencia
+
+**H2:**
+Lo que hice.
+
+---
+
+**Bloque 1 — 2024 / 2026**
+Nombre: Global Fan
+
+Descripción: Global Fan es un SaaS B2B deportivo. Entré cuando la compañía tenía tracción pero ningún sistema operativo. Lo primero que hice fue implementar EOS — estructura de reuniones, roles, métricas, ritmos. A partir de ahí, todo lo demás fue posible. En 20 meses: +598% en GMV, +565% en revenue, +63% en cartera activa. Hoy la operación corre sobre 130 instituciones deportivas en 20 provincias, con más de 200.000 usuarios activos.
+
+Métricas:
+- +598% en GMV
+- +565% en revenue
+- +63% en cartera activa
+
+---
+
+**Bloque 2 — 2018 / 2024**
+Nombre: Cárbula
+
+Descripción: Cofundé Cárbula, un marketplace B2C/B2B para compraventa de vehículos usados en LATAM. Lo construí de cero, lo escalé a cinco países, levanté inversión de fondos líderes, atravesé una pandemia, y lo vendí en 2024.
+
+Métricas:
+- USD 17M procesados
+- +1.500 autos vendidos
+- 42% de crecimiento mensual
+
+---
+
+**Bloque 3 — 2015 / 2020**
+Nombre: Antes de todo eso
+
+Descripción: Cofundé la primera incubadora privada de empresas de Mendoza, donde acompañé a más de 200 equipos a lanzar sus negocios. Y cofundé el primer espacio de coworking de la provincia, cuando nadie sabía todavía qué era eso.
+
+Métricas:
+- +200 equipos entrenados
+- +50 empresas financiadas
+- 3 reconocimientos nacionales
+
+---
+
+## RECONOCIMIENTO
+
+Joven Mendocino Destacado del Año
+El Consejo Empresario Mendocino me reconoció en la categoría Liderazgo, compromiso y desarrollo empresarial. El principal premio empresarial de la provincia para jóvenes que construyen desde adentro.
+
+---
+
+## CIERRE
+
+**Etiqueta de sección:** — Nuevos desafíos
+
+**H2:**
+Estoy buscando un rol de operaciones en una compañía de tecnología.
+
+**Cuerpo:**
+Estoy buscando un rol de operaciones en una compañía de tecnología. Si creés que tiene sentido, o conocés a alguien a quien le pueda servir un perfil así, escribime.
+
+**CTA:** Hablemos →
+
+---
+
+## META TAGS
+
+title: Martín Salassa — Operador
+description: COO y operador con 15 años en empresas de tecnología. Transformo caos operativo en sistemas que escalan.
