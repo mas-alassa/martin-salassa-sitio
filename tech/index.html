@@ -249,6 +249,7 @@
     .btn-dark:hover svg { transform: translate(2px,-2px); }
 
     /* ─── Hero ───────────────────────────────────── */
+    .hero-photo-mobile { display: none; }
     #hero {
       min-height: 100dvh;
       display: flex; flex-direction: column; justify-content: flex-end;
@@ -557,6 +558,16 @@
       .hero-label   { margin-bottom: 20px; font-size: .9375rem; }
       .hero-headline { margin-bottom: 24px; letter-spacing: -.025em; }
       .hero-sub { margin-bottom: 40px; }
+      #hero { position: relative; }
+      .hero-photo-mobile {
+        display: block;
+        position: absolute;
+        top: calc(var(--header-h) + 32px);
+        left: 50%;
+        transform: translateX(-50%);
+        width: 220px;
+        height: auto;
+      }
 
       .service-row { grid-template-columns: 1fr; gap: 10px; }
       .service-category { padding-top: 0; }
@@ -627,6 +638,7 @@
 
     <!-- ─── Hero ──────────────────────────── -->
     <section id="hero" aria-labelledby="hero-heading">
+      <img class="hero-photo-mobile" src="hero-graphic.png" alt="" aria-hidden="true">
       <div class="hero-inner">
         <p class="hero-label reveal" data-i18n="hero_label">Hola. Soy Martín.</p>
         <h1 class="hero-headline reveal reveal-delay-1" id="hero-heading" data-i18n="hero_h1">
