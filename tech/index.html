@@ -136,6 +136,17 @@
     .btn-pill svg { transition: transform .2s var(--ease-out); }
     .btn-pill:hover svg { transform: translate(2px,-2px); }
 
+    .lang-toggle {
+      font-family: var(--font-body); font-weight: 600;
+      font-size: .8125rem; letter-spacing: .05em;
+      padding: 9px 16px; border-radius: 100px;
+      border: 1.5px solid var(--gray-100);
+      color: var(--black); background: transparent;
+      transition: border-color .2s, color .2s;
+      white-space: nowrap;
+    }
+    .lang-toggle:hover { border-color: var(--gray-300); }
+
     .hamburger {
       width: 40px; height: 40px;
       display: flex; align-items: center; justify-content: center;
@@ -310,37 +321,6 @@
     }
     .quien-photo:hover img {
       transform: translateY(-8px) scale(1.01);
-    }
-
-    /* ─── Qué cambia cuando estoy ────────────────── */
-    #que-hago { background: var(--white); border-top: 1px solid var(--gray-100); }
-    .intro-text {
-      font-family: var(--font-body);
-      font-size: clamp(1.0625rem,1.6vw,1.1875rem);
-      font-weight: 500; line-height: 1.65;
-      color: var(--black); max-width: 720px;
-      margin-bottom: 40px;
-    }
-
-    .friction-list {
-      list-style: none;
-      margin-top: 40px;
-      max-width: 680px;
-    }
-    .friction-list li {
-      position: relative;
-      font-family: var(--font-body);
-      font-size: clamp(1rem,1.5vw,1.125rem);
-      line-height: 1.7; color: var(--gray-500);
-      padding: 20px 0 20px 32px;
-      border-top: 1px solid var(--gray-100);
-    }
-    .friction-list li:last-child { border-bottom: 1px solid var(--gray-100); }
-    .friction-list li::before {
-      content: '';
-      position: absolute; left: 0; top: 29px;
-      width: 14px; height: 1.5px;
-      background: var(--black);
     }
 
     /* ─── Dónde puedo sumar ──────────────────────── */
@@ -619,8 +599,9 @@
     <div class="header-inner">
       <a href="#" class="logo" aria-label="Martín Salassa — inicio">Martín Salassa</a>
       <div class="header-right">
+        <button class="lang-toggle" id="lang-toggle" aria-label="Switch language / Cambiar idioma">EN</button>
         <a href="https://wa.me/5492615981450" target="_blank" rel="noopener noreferrer" class="btn-pill" aria-label="Contactar a Martín por WhatsApp">
-          Hablemos
+          <span data-i18n="cta_talk">Hablemos</span>
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
             <path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -634,13 +615,12 @@
 
   <!-- ─── Mobile Menu ───────────────────────── -->
   <nav id="mobile-menu" aria-label="Menú principal" aria-hidden="true">
-    <button class="menu-close" id="menu-close" aria-label="Cerrar menú">Cerrar</button>
-    <a href="#quien-soy"   class="mobile-nav-link" data-menu-link>Quién soy</a>
-    <a href="#que-hago"    class="mobile-nav-link" data-menu-link>Qué hago</a>
-    <a href="#donde-sumo"  class="mobile-nav-link" data-menu-link>Dónde sumo</a>
-    <a href="#lo-que-hice" class="mobile-nav-link" data-menu-link>Lo que hice</a>
-    <a href="#reconocimiento" class="mobile-nav-link" data-menu-link>Reconocimiento</a>
-    <a href="https://wa.me/5492615981450" target="_blank" rel="noopener noreferrer" class="mobile-nav-link">Hablemos</a>
+    <button class="menu-close" id="menu-close" aria-label="Cerrar menú" data-i18n="menu_close">Cerrar</button>
+    <a href="#quien-soy"   class="mobile-nav-link" data-menu-link data-i18n="nav_about">Quién soy</a>
+    <a href="#donde-sumo"  class="mobile-nav-link" data-menu-link data-i18n="nav_help">Dónde sumo</a>
+    <a href="#lo-que-hice" class="mobile-nav-link" data-menu-link data-i18n="nav_experience">Lo que hice</a>
+    <a href="#reconocimiento" class="mobile-nav-link" data-menu-link data-i18n="nav_recognition">Reconocimiento</a>
+    <a href="https://wa.me/5492615981450" target="_blank" rel="noopener noreferrer" class="mobile-nav-link" data-i18n="cta_talk">Hablemos</a>
   </nav>
 
   <main id="main-content">
@@ -648,15 +628,15 @@
     <!-- ─── Hero ──────────────────────────── -->
     <section id="hero" aria-labelledby="hero-heading">
       <div class="hero-inner">
-        <p class="hero-label reveal">Hola. Soy Martín.</p>
-        <h1 class="hero-headline reveal reveal-delay-1" id="hero-heading">
-          Busco sumarme a una compañía donde la operación todavía depende mucho de los founders.
+        <p class="hero-label reveal" data-i18n="hero_label">Hola. Soy Martín.</p>
+        <h1 class="hero-headline reveal reveal-delay-1" id="hero-heading" data-i18n="hero_h1">
+          Estoy buscando trabajo en una compañía de tecnología.
         </h1>
-        <p class="hero-sub reveal reveal-delay-2">
-          Convierto la visión de la compañía en ejecución concreta.
+        <p class="hero-sub reveal reveal-delay-2" data-i18n="hero_sub">
+          Y soy de los que ejecutan para que las cosas sucedan.
         </p>
         <a href="https://wa.me/5492615981450" target="_blank" rel="noopener noreferrer" class="btn-dark reveal reveal-delay-3" aria-label="Contactar a Martín por WhatsApp">
-          Hablemos
+          <span data-i18n="cta_talk">Hablemos</span>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M2 14L14 2M14 2H4M14 2V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -667,18 +647,18 @@
     <!-- ─── Ticker ────────────────────────── -->
     <div class="ticker-wrap" aria-hidden="true">
       <div class="ticker-track">
-        <span class="ticker-item">Mendoza, Argentina <span class="ticker-sep">·</span></span>
-        <span class="ticker-item">15 años de experiencia <span class="ticker-sep">·</span></span>
-        <span class="ticker-item">COO &amp; Operador <span class="ticker-sep">·</span></span>
-        <span class="ticker-item">Sistemas operativos <span class="ticker-sep">·</span></span>
-        <span class="ticker-item">Equipos y ejecución <span class="ticker-sep">·</span></span>
-        <span class="ticker-item">Startups en escala <span class="ticker-sep">·</span></span>
-        <span class="ticker-item">Mendoza, Argentina <span class="ticker-sep">·</span></span>
-        <span class="ticker-item">15 años de experiencia <span class="ticker-sep">·</span></span>
-        <span class="ticker-item">COO &amp; Operador <span class="ticker-sep">·</span></span>
-        <span class="ticker-item">Sistemas operativos <span class="ticker-sep">·</span></span>
-        <span class="ticker-item">Equipos y ejecución <span class="ticker-sep">·</span></span>
-        <span class="ticker-item">Startups en escala <span class="ticker-sep">·</span></span>
+        <span class="ticker-item"><span data-i18n="ticker_location">Mendoza, Argentina</span> <span class="ticker-sep">·</span></span>
+        <span class="ticker-item"><span data-i18n="ticker_experience">15 años de experiencia</span> <span class="ticker-sep">·</span></span>
+        <span class="ticker-item"><span data-i18n="ticker_role">COO &amp; Operador</span> <span class="ticker-sep">·</span></span>
+        <span class="ticker-item"><span data-i18n="ticker_systems">Sistemas operativos</span> <span class="ticker-sep">·</span></span>
+        <span class="ticker-item"><span data-i18n="ticker_teams">Equipos y ejecución</span> <span class="ticker-sep">·</span></span>
+        <span class="ticker-item"><span data-i18n="ticker_startups">Startups en escala</span> <span class="ticker-sep">·</span></span>
+        <span class="ticker-item"><span data-i18n="ticker_location">Mendoza, Argentina</span> <span class="ticker-sep">·</span></span>
+        <span class="ticker-item"><span data-i18n="ticker_experience">15 años de experiencia</span> <span class="ticker-sep">·</span></span>
+        <span class="ticker-item"><span data-i18n="ticker_role">COO &amp; Operador</span> <span class="ticker-sep">·</span></span>
+        <span class="ticker-item"><span data-i18n="ticker_systems">Sistemas operativos</span> <span class="ticker-sep">·</span></span>
+        <span class="ticker-item"><span data-i18n="ticker_teams">Equipos y ejecución</span> <span class="ticker-sep">·</span></span>
+        <span class="ticker-item"><span data-i18n="ticker_startups">Startups en escala</span> <span class="ticker-sep">·</span></span>
       </div>
     </div>
 
@@ -686,13 +666,13 @@
     <section id="quien-soy" aria-labelledby="quien-soy-heading">
       <div class="quien-grid">
         <div class="quien-text">
-          <p class="section-tag reveal">— Quién soy</p>
-          <h2 class="big-statement reveal reveal-delay-1" id="quien-soy-heading">
+          <p class="section-tag reveal" data-i18n="tag_about">— Quién soy</p>
+          <h2 class="big-statement reveal reveal-delay-1" id="quien-soy-heading" data-i18n="about_h2">
             Trabajo en la intersección entre ejecución, sistemas y crecimiento.
           </h2>
           <div class="body-text reveal reveal-delay-2">
-            <p>Llevo 15 años metiéndome en empresas de tecnología en etapa de escala. Arranqué negocios de cero, operé en cinco países, atravesé una pandemia con ingresos en cero, y vendí una compañía. No desde un deck. Desde adentro.</p>
-            <p>No soy especialista en una sola área. Soy el operador que trabaja de forma transversal con Producto, Tecnología, Diseño, Growth, Finanzas y Operaciones, enfocado en alineación, ownership y ejecución sostenible.</p>
+            <p data-i18n="about_p1">Llevo 15 años metiéndome en empresas de tecnología en etapa de escala. Arranqué negocios de cero, operé en cinco países, y vendí una compañía. No desde un deck. Desde adentro.</p>
+            <p data-i18n="about_p2">No soy especialista en una sola área. Soy el operador que trabaja de forma transversal con Producto, Tecnología, Diseño, Growth, Finanzas y Operaciones, enfocado en alineación, ownership y ejecución sostenible.</p>
           </div>
         </div>
         <div class="quien-photo reveal reveal-delay-3">
@@ -701,62 +681,44 @@
       </div>
     </section>
 
-    <!-- ─── Qué cambia cuando estoy ───────── -->
-    <section id="que-hago" aria-labelledby="que-hago-heading">
-      <div class="container">
-        <p class="section-tag reveal">— Qué hago</p>
-        <h2 class="big-statement reveal reveal-delay-1" id="que-hago-heading">
-          Las compañías dejan de crecer cuando no se transforma la ejecución en sistemas.
-        </h2>
-        <p class="intro-text reveal reveal-delay-2">
-          Mi rol suele ser el mismo: entrar en contextos de alta velocidad y transformar el caos en estructuras operativas que puedan escalar sin volverse frágiles.
-        </p>
-        <ul class="friction-list reveal reveal-delay-3">
-          <li>Equipos que avanzan rápido pero con responsabilidades difusas.</li>
-          <li>Decisiones que se postergan para evitar fricción.</li>
-          <li>Sistemas que dependen más del esfuerzo individual que de la estructura.</li>
-        </ul>
-      </div>
-    </section>
-
     <!-- ─── Dónde puedo sumar ─────────────── -->
     <section id="donde-sumo" aria-labelledby="donde-sumo-heading">
       <div class="container">
-        <p class="section-tag reveal">— Dónde puedo sumar</p>
-        <h2 class="big-statement reveal reveal-delay-1" id="donde-sumo-heading" style="max-width:700px">
+        <p class="section-tag reveal" data-i18n="tag_help">— Dónde puedo sumar</p>
+        <h2 class="big-statement reveal reveal-delay-1" id="donde-sumo-heading" style="max-width:700px" data-i18n="help_h2">
           Los problemas que puedo ayudar a resolver.
         </h2>
 
         <div class="services-list" role="list">
 
           <article class="service-row reveal" role="listitem">
-            <span class="service-category">Operaciones del día a día</span>
-            <h3 class="service-title">Cuando el founder opera el negocio en lugar de construirlo.</h3>
-            <p class="service-desc">Me hago cargo de que todo funcione. Libero al founder de la operación diaria para que pueda enfocarse en el futuro de la compañía.</p>
+            <span class="service-category" data-i18n="svc1_cat">Operaciones del día a día</span>
+            <h3 class="service-title" data-i18n="svc1_title">Cuando el founder opera el negocio en lugar de construirlo.</h3>
+            <p class="service-desc" data-i18n="svc1_desc">Me hago cargo de que todo funcione. Libero al founder de la operación diaria para que pueda enfocarse en el futuro de la compañía.</p>
           </article>
 
           <article class="service-row reveal reveal-delay-1" role="listitem">
-            <span class="service-category">Coordinación y soporte</span>
-            <h3 class="service-title">Cuando cada área avanza por su lado.</h3>
-            <p class="service-desc">Coordino Producto, Tech, Growth y Operaciones para que trabajen alineados y las prioridades tengan sentido para el negocio.</p>
+            <span class="service-category" data-i18n="svc2_cat">Coordinación y soporte</span>
+            <h3 class="service-title" data-i18n="svc2_title">Cuando cada área avanza por su lado.</h3>
+            <p class="service-desc" data-i18n="svc2_desc">Coordino Producto, Tech, Growth y Operaciones para que trabajen alineados y las prioridades tengan sentido para el negocio.</p>
           </article>
 
           <article class="service-row reveal reveal-delay-2" role="listitem">
-            <span class="service-category">Eficiencia y crecimiento</span>
-            <h3 class="service-title">Cuando los procesos actuales no alcanzan para la etapa que viene.</h3>
-            <p class="service-desc">Analizo procesos, elimino lo que no agrega valor, y rediseño la forma de trabajar para que el equipo haga más con menos fricción.</p>
+            <span class="service-category" data-i18n="svc3_cat">Eficiencia y crecimiento</span>
+            <h3 class="service-title" data-i18n="svc3_title">Cuando los procesos actuales no alcanzan para la etapa que viene.</h3>
+            <p class="service-desc" data-i18n="svc3_desc">Analizo procesos, elimino lo que no agrega valor, y rediseño la forma de trabajar para que el equipo haga más con menos fricción.</p>
           </article>
 
           <article class="service-row reveal reveal-delay-3" role="listitem">
-            <span class="service-category">Performance de negocio</span>
-            <h3 class="service-title">Cuando las decisiones se toman sin datos.</h3>
-            <p class="service-desc">Armo los tableros, defino los KPIs que importan, y establezco la cadencia para tomar decisiones con datos — incluyendo P&amp;L, unit economics y eficiencia operativa.</p>
+            <span class="service-category" data-i18n="svc4_cat">Performance de negocio</span>
+            <h3 class="service-title" data-i18n="svc4_title">Cuando las decisiones se toman sin datos.</h3>
+            <p class="service-desc" data-i18n="svc4_desc">Armo los tableros, defino los KPIs que importan, y establezco la cadencia para tomar decisiones con datos — incluyendo P&amp;L, unit economics y eficiencia operativa.</p>
           </article>
 
           <article class="service-row reveal reveal-delay-4" role="listitem">
-            <span class="service-category">Transformación operacional</span>
-            <h3 class="service-title">Cuando la visión existe pero nadie sabe cómo ejecutarla.</h3>
-            <p class="service-desc">Convierto las decisiones en sistemas concretos. Procesos, cadencias, rituales — todo lo que hace que lo que se decide realmente pase.</p>
+            <span class="service-category" data-i18n="svc5_cat">Transformación operacional</span>
+            <h3 class="service-title" data-i18n="svc5_title">Cuando la visión existe pero nadie sabe cómo ejecutarla.</h3>
+            <p class="service-desc" data-i18n="svc5_desc">Convierto las decisiones en sistemas concretos. Procesos, cadencias, rituales — todo lo que hace que lo que se decide realmente pase.</p>
           </article>
 
         </div>
@@ -766,8 +728,8 @@
     <!-- ─── Lo que hice ───────────────────── -->
     <section id="lo-que-hice" aria-labelledby="lo-que-hice-heading">
       <div class="container">
-        <p class="section-tag reveal">— Experiencia</p>
-        <h2 class="big-statement reveal reveal-delay-1" id="lo-que-hice-heading">
+        <p class="section-tag reveal" data-i18n="tag_experience">— Experiencia</p>
+        <h2 class="big-statement reveal reveal-delay-1" id="lo-que-hice-heading" data-i18n="experience_h2">
           Lo que hice.
         </h2>
 
@@ -778,20 +740,20 @@
             <div class="case-body">
               <p class="case-period">2024 — 2026</p>
               <h3 class="case-title">Global Fan</h3>
-              <p class="case-desc">Global Fan es un SaaS B2B deportivo. Entré cuando la compañía tenía tracción pero ningún sistema operativo. Lo primero que hice fue implementar EOS — estructura de reuniones, roles, métricas, ritmos. A partir de ahí, todo lo demás fue posible. En 20 meses: +598% en GMV, +565% en revenue, +63% en cartera activa. Hoy la operación corre sobre 130 instituciones deportivas en 20 provincias, con más de 200.000 usuarios activos.</p>
+              <p class="case-desc" data-i18n="case1_desc">Global Fan es un SaaS B2B deportivo. Entré cuando la compañía tenía tracción pero ningún sistema operativo. Lo primero que hice fue implementar EOS — estructura de reuniones, roles, métricas, ritmos. A partir de ahí, todo lo demás fue posible. En 20 meses: +598% en GMV, +565% en revenue, +63% en cartera activa. Hoy la operación corre sobre 130 instituciones deportivas en 20 provincias, con más de 200.000 usuarios activos.</p>
             </div>
             <div class="case-metrics" aria-label="Métricas de Global Fan">
               <div class="metric">
                 <span class="metric-value" data-target="598" data-prefix="+" data-suffix="%">+598%</span>
-                <span class="metric-label">en GMV</span>
+                <span class="metric-label" data-i18n="case1_metric1_label">en GMV</span>
               </div>
               <div class="metric">
                 <span class="metric-value" data-target="565" data-prefix="+" data-suffix="%">+565%</span>
-                <span class="metric-label">en revenue</span>
+                <span class="metric-label" data-i18n="case1_metric2_label">en revenue</span>
               </div>
               <div class="metric">
                 <span class="metric-value" data-target="63" data-prefix="+" data-suffix="%">+63%</span>
-                <span class="metric-label">en cartera activa</span>
+                <span class="metric-label" data-i18n="case1_metric3_label">en cartera activa</span>
               </div>
             </div>
           </article>
@@ -801,20 +763,20 @@
             <div class="case-body">
               <p class="case-period">2018 — 2024</p>
               <h3 class="case-title">Cárbula</h3>
-              <p class="case-desc">Cofundé Cárbula, un marketplace B2C/B2B para compraventa de vehículos usados en LATAM. Lo construí de cero, lo escalé a cinco países, levanté inversión de fondos líderes, atravesé una pandemia, y lo vendí en 2024.</p>
+              <p class="case-desc" data-i18n="case2_desc">Cofundé Cárbula, un marketplace B2C/B2B para compraventa de vehículos usados en LATAM. Lo construí de cero, lo escalé a cinco países, levanté inversión de fondos líderes, atravesé una pandemia, y lo vendí en 2024.</p>
             </div>
             <div class="case-metrics" aria-label="Métricas de Cárbula">
               <div class="metric">
                 <span class="metric-value" data-target="17" data-prefix="USD " data-suffix="M">USD 17M</span>
-                <span class="metric-label">procesados</span>
+                <span class="metric-label" data-i18n="case2_metric1_label">procesados</span>
               </div>
               <div class="metric">
                 <span class="metric-value" data-target="1500" data-prefix="+" data-suffix="">+1.500</span>
-                <span class="metric-label">autos vendidos</span>
+                <span class="metric-label" data-i18n="case2_metric2_label">autos vendidos</span>
               </div>
               <div class="metric">
                 <span class="metric-value" data-target="42" data-prefix="" data-suffix="%">42%</span>
-                <span class="metric-label">de crecimiento mensual</span>
+                <span class="metric-label" data-i18n="case2_metric3_label">de crecimiento mensual</span>
               </div>
             </div>
           </article>
@@ -823,21 +785,21 @@
           <article class="case-item reveal reveal-delay-2" role="listitem">
             <div class="case-body">
               <p class="case-period">2015 — 2020</p>
-              <h3 class="case-title">Antes de todo eso</h3>
-              <p class="case-desc">Cofundé la primera incubadora privada de empresas de Mendoza, donde acompañé a más de 200 equipos a lanzar sus negocios. Y cofundé el primer espacio de coworking de la provincia, cuando nadie sabía todavía qué era eso.</p>
+              <h3 class="case-title" data-i18n="case3_title">Antes de todo eso</h3>
+              <p class="case-desc" data-i18n="case3_desc">Cofundé la primera incubadora privada de empresas de Mendoza, donde acompañé a más de 200 equipos a lanzar sus negocios. Y cofundé el primer espacio de coworking de la provincia, cuando nadie sabía todavía qué era eso.</p>
             </div>
             <div class="case-metrics" aria-label="Métricas período inicial">
               <div class="metric">
                 <span class="metric-value" data-target="200" data-prefix="+" data-suffix="">+200</span>
-                <span class="metric-label">equipos entrenados</span>
+                <span class="metric-label" data-i18n="case3_metric1_label">equipos entrenados</span>
               </div>
               <div class="metric">
                 <span class="metric-value" data-target="50" data-prefix="+" data-suffix="">+50</span>
-                <span class="metric-label">empresas financiadas</span>
+                <span class="metric-label" data-i18n="case3_metric2_label">empresas financiadas</span>
               </div>
               <div class="metric">
                 <span class="metric-value" data-target="3" data-prefix="" data-suffix="">3</span>
-                <span class="metric-label">reconocimientos nacionales</span>
+                <span class="metric-label" data-i18n="case3_metric3_label">reconocimientos nacionales</span>
               </div>
             </div>
           </article>
@@ -849,11 +811,11 @@
     <!-- ─── Reconocimiento ────────────────── -->
     <section id="reconocimiento" aria-labelledby="reconocimiento-heading">
       <div class="container">
-        <p class="section-tag reveal">— Reconocimiento</p>
+        <p class="section-tag reveal" data-i18n="tag_recognition">— Reconocimiento</p>
         <div class="award-layout">
           <div class="award-card reveal reveal-delay-1">
             <h2 class="award-name" id="reconocimiento-heading">Joven Mendocino Destacado del Año</h2>
-            <p class="award-body">El Consejo Empresario Mendocino me reconoció en la categoría Liderazgo, compromiso y desarrollo empresarial. El principal premio empresarial de la provincia para jóvenes que construyen desde adentro.</p>
+            <p class="award-body" data-i18n="award_body">El Consejo Empresario Mendocino me reconoció en la categoría Liderazgo, compromiso y desarrollo empresarial. El principal premio empresarial de la provincia para jóvenes que construyen desde adentro.</p>
           </div>
         </div>
       </div>
@@ -862,15 +824,15 @@
     <!-- ─── Cierre ────────────────────────── -->
     <section id="cierre" aria-labelledby="cierre-heading">
       <div class="container">
-        <p class="section-tag reveal">— Nuevos desafíos</p>
-        <h2 class="big-statement reveal reveal-delay-1" id="cierre-heading" style="max-width:700px">
+        <p class="section-tag reveal" data-i18n="tag_close">— Nuevos desafíos</p>
+        <h2 class="big-statement reveal reveal-delay-1" id="cierre-heading" style="max-width:700px" data-i18n="close_h2">
           Estoy buscando un rol de operaciones en una compañía de tecnología.
         </h2>
-        <p class="closing-text reveal reveal-delay-2">
+        <p class="closing-text reveal reveal-delay-2" data-i18n="close_body">
           Si creés que tiene sentido, o conocés a alguien a quien le pueda servir un perfil así, escribime.
         </p>
         <a href="https://wa.me/5492615981450" target="_blank" rel="noopener noreferrer" class="btn-dark reveal reveal-delay-3" aria-label="Contactar a Martín por WhatsApp">
-          Hablemos
+          <span data-i18n="cta_talk">Hablemos</span>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M2 14L14 2M14 2H4M14 2V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -883,7 +845,7 @@
   <!-- ─── Footer ───────────────────────────── -->
   <footer id="footer" role="contentinfo">
     <div class="footer-inner">
-      <p class="footer-eyebrow">Gracias.</p>
+      <p class="footer-eyebrow" data-i18n="footer_thanks">Gracias.</p>
       <a href="mailto:hola@martinsalassa.com" class="footer-email" aria-label="Enviar email a hola@martinsalassa.com">
         hola@martinsalassa.com<span class="arrow" aria-hidden="true">↗</span>
       </a>
@@ -892,11 +854,10 @@
         <div>
           <nav aria-label="Navegación del sitio">
             <ul class="footer-nav">
-              <li><a href="#quien-soy">Quién soy</a></li>
-              <li><a href="#que-hago">Qué hago</a></li>
-              <li><a href="#donde-sumo">Dónde sumo</a></li>
-              <li><a href="#lo-que-hice">Lo que hice</a></li>
-              <li><a href="#reconocimiento">Reconocimiento</a></li>
+              <li><a href="#quien-soy" data-i18n="nav_about">Quién soy</a></li>
+              <li><a href="#donde-sumo" data-i18n="nav_help">Dónde sumo</a></li>
+              <li><a href="#lo-que-hice" data-i18n="nav_experience">Lo que hice</a></li>
+              <li><a href="#reconocimiento" data-i18n="nav_recognition">Reconocimiento</a></li>
             </ul>
           </nav>
           <p class="footer-phone">+54 9 261 5981450</p>
@@ -917,7 +878,7 @@
 
       <div class="footer-copy-bar">
         <p class="footer-copy">
-          © 2026 Todos los derechos reservados. Hecho con <span class="heart" aria-label="amor">♥</span>
+          <span data-i18n="footer_copy">© 2026 Todos los derechos reservados. Hecho con</span> <span class="heart" aria-label="amor">♥</span>
         </p>
       </div>
 
@@ -1021,6 +982,158 @@
       });
     }, { threshold: .5 });
     document.querySelectorAll('.metric-value[data-target]').forEach(el => counterObs.observe(el));
+
+    /* ─── Idioma (ES/EN) ─────────────────── */
+    const translations = {
+      es: {
+        meta_title: 'Martín Salassa — Operador',
+        meta_description: 'COO y operador con 15 años en empresas de tecnología. Transformo caos operativo en sistemas que escalan.',
+        cta_talk: 'Hablemos',
+        menu_close: 'Cerrar',
+        nav_about: 'Quién soy',
+        nav_help: 'Dónde sumo',
+        nav_experience: 'Lo que hice',
+        nav_recognition: 'Reconocimiento',
+        ticker_location: 'Mendoza, Argentina',
+        ticker_experience: '15 años de experiencia',
+        ticker_role: 'COO &amp; Operador',
+        ticker_systems: 'Sistemas operativos',
+        ticker_teams: 'Equipos y ejecución',
+        ticker_startups: 'Startups en escala',
+        hero_label: 'Hola. Soy Martín.',
+        hero_h1: 'Estoy buscando trabajo en una compañía de tecnología.',
+        hero_sub: 'Y soy de los que ejecutan para que las cosas sucedan.',
+        tag_about: '— Quién soy',
+        about_h2: 'Trabajo en la intersección entre ejecución, sistemas y crecimiento.',
+        about_p1: 'Llevo 15 años metiéndome en empresas de tecnología en etapa de escala. Arranqué negocios de cero, operé en cinco países, y vendí una compañía. No desde un deck. Desde adentro.',
+        about_p2: 'No soy especialista en una sola área. Soy el operador que trabaja de forma transversal con Producto, Tecnología, Diseño, Growth, Finanzas y Operaciones, enfocado en alineación, ownership y ejecución sostenible.',
+        tag_help: '— Dónde puedo sumar',
+        help_h2: 'Los problemas que puedo ayudar a resolver.',
+        svc1_cat: 'Operaciones del día a día',
+        svc1_title: 'Cuando el founder opera el negocio en lugar de construirlo.',
+        svc1_desc: 'Me hago cargo de que todo funcione. Libero al founder de la operación diaria para que pueda enfocarse en el futuro de la compañía.',
+        svc2_cat: 'Coordinación y soporte',
+        svc2_title: 'Cuando cada área avanza por su lado.',
+        svc2_desc: 'Coordino Producto, Tech, Growth y Operaciones para que trabajen alineados y las prioridades tengan sentido para el negocio.',
+        svc3_cat: 'Eficiencia y crecimiento',
+        svc3_title: 'Cuando los procesos actuales no alcanzan para la etapa que viene.',
+        svc3_desc: 'Analizo procesos, elimino lo que no agrega valor, y rediseño la forma de trabajar para que el equipo haga más con menos fricción.',
+        svc4_cat: 'Performance de negocio',
+        svc4_title: 'Cuando las decisiones se toman sin datos.',
+        svc4_desc: 'Armo los tableros, defino los KPIs que importan, y establezco la cadencia para tomar decisiones con datos — incluyendo P&L, unit economics y eficiencia operativa.',
+        svc5_cat: 'Transformación operacional',
+        svc5_title: 'Cuando la visión existe pero nadie sabe cómo ejecutarla.',
+        svc5_desc: 'Convierto las decisiones en sistemas concretos. Procesos, cadencias, rituales — todo lo que hace que lo que se decide realmente pase.',
+        tag_experience: '— Experiencia',
+        experience_h2: 'Lo que hice.',
+        case1_desc: 'Global Fan es un SaaS B2B deportivo. Entré cuando la compañía tenía tracción pero ningún sistema operativo. Lo primero que hice fue implementar EOS — estructura de reuniones, roles, métricas, ritmos. A partir de ahí, todo lo demás fue posible. En 20 meses: +598% en GMV, +565% en revenue, +63% en cartera activa. Hoy la operación corre sobre 130 instituciones deportivas en 20 provincias, con más de 200.000 usuarios activos.',
+        case1_metric1_label: 'en GMV',
+        case1_metric2_label: 'en revenue',
+        case1_metric3_label: 'en cartera activa',
+        case2_desc: 'Cofundé Cárbula, un marketplace B2C/B2B para compraventa de vehículos usados en LATAM. Lo construí de cero, lo escalé a cinco países, levanté inversión de fondos líderes, atravesé una pandemia, y lo vendí en 2024.',
+        case2_metric1_label: 'procesados',
+        case2_metric2_label: 'autos vendidos',
+        case2_metric3_label: 'de crecimiento mensual',
+        case3_title: 'Antes de todo eso',
+        case3_desc: 'Cofundé la primera incubadora privada de empresas de Mendoza, donde acompañé a más de 200 equipos a lanzar sus negocios. Y cofundé el primer espacio de coworking de la provincia, cuando nadie sabía todavía qué era eso.',
+        case3_metric1_label: 'equipos entrenados',
+        case3_metric2_label: 'empresas financiadas',
+        case3_metric3_label: 'reconocimientos nacionales',
+        tag_recognition: '— Reconocimiento',
+        award_body: 'El Consejo Empresario Mendocino me reconoció en la categoría Liderazgo, compromiso y desarrollo empresarial. El principal premio empresarial de la provincia para jóvenes que construyen desde adentro.',
+        tag_close: '— Nuevos desafíos',
+        close_h2: 'Estoy buscando un rol de operaciones en una compañía de tecnología.',
+        close_body: 'Si creés que tiene sentido, o conocés a alguien a quien le pueda servir un perfil así, escribime.',
+        footer_thanks: 'Gracias.',
+        footer_copy: '© 2026 Todos los derechos reservados. Hecho con',
+      },
+      en: {
+        meta_title: 'Martín Salassa — Operator',
+        meta_description: 'COO and operator with 15 years in tech companies. I turn operational chaos into systems that scale.',
+        cta_talk: "Let's talk",
+        menu_close: 'Close',
+        nav_about: 'About',
+        nav_help: 'Where I help',
+        nav_experience: 'Experience',
+        nav_recognition: 'Recognition',
+        ticker_location: 'Mendoza, Argentina',
+        ticker_experience: '15 years of experience',
+        ticker_role: 'COO &amp; Operator',
+        ticker_systems: 'Operating systems',
+        ticker_teams: 'Teams &amp; execution',
+        ticker_startups: 'Scaling startups',
+        hero_label: "Hi. I'm Martín.",
+        hero_h1: "I'm looking for a role at a technology company.",
+        hero_sub: "And I'm someone who gets things done.",
+        tag_about: '— About me',
+        about_h2: 'I work at the intersection of execution, systems, and growth.',
+        about_p1: "I've spent 15 years getting deep into scaling tech companies. I started businesses from scratch, operated in five countries, and sold a company. Not from a deck. From the inside.",
+        about_p2: "I'm not a specialist in a single area. I'm the operator who works across Product, Tech, Design, Growth, Finance and Operations, focused on alignment, ownership and sustainable execution.",
+        tag_help: '— Where I can help',
+        help_h2: 'The problems I can help solve.',
+        svc1_cat: 'Day-to-day operations',
+        svc1_title: "When the founder is running the business instead of building it.",
+        svc1_desc: "I take ownership of making everything run. I free up the founder from daily operations so they can focus on the company's future.",
+        svc2_cat: 'Coordination & support',
+        svc2_title: 'When every team moves in its own direction.',
+        svc2_desc: 'I coordinate Product, Tech, Growth and Operations so they work in sync and priorities make sense for the business.',
+        svc3_cat: 'Efficiency & growth',
+        svc3_title: "When current processes won't carry you into the next stage.",
+        svc3_desc: "I analyze processes, cut what doesn't add value, and redesign how the team works so it can do more with less friction.",
+        svc4_cat: 'Business performance',
+        svc4_title: 'When decisions get made without data.',
+        svc4_desc: 'I build the dashboards, define the KPIs that matter, and set the cadence for data-driven decisions — including P&L, unit economics and operational efficiency.',
+        svc5_cat: 'Operational transformation',
+        svc5_title: 'When the vision exists but no one knows how to execute it.',
+        svc5_desc: 'I turn decisions into concrete systems. Processes, cadences, rituals — everything that makes what gets decided actually happen.',
+        tag_experience: '— Experience',
+        experience_h2: "What I've done.",
+        case1_desc: "Global Fan is a B2B sports SaaS. I joined when the company had traction but no operating system. The first thing I did was implement EOS — meeting structures, roles, metrics, rhythms. From there, everything else became possible. In 20 months: +598% in GMV, +565% in revenue, +63% in active accounts. Today the operation runs across 130 sports institutions in 20 provinces, with over 200,000 active users.",
+        case1_metric1_label: 'in GMV',
+        case1_metric2_label: 'in revenue',
+        case1_metric3_label: 'in active accounts',
+        case2_desc: "I co-founded Cárbula, a B2C/B2B marketplace for buying and selling used vehicles across Latin America. I built it from scratch, scaled it to five countries, raised funding from top-tier investors, weathered a pandemic, and sold it in 2024.",
+        case2_metric1_label: 'processed',
+        case2_metric2_label: 'cars sold',
+        case2_metric3_label: 'monthly growth',
+        case3_title: 'Before all that',
+        case3_desc: "I co-founded Mendoza's first private business incubator, where I helped more than 200 teams launch their businesses. And I co-founded the province's first coworking space, back when nobody quite knew what that was.",
+        case3_metric1_label: 'teams trained',
+        case3_metric2_label: 'companies funded',
+        case3_metric3_label: 'national awards',
+        tag_recognition: '— Recognition',
+        award_body: "Recognized by the Mendoza Business Council in the Leadership, Commitment & Business Development category — the province's top business award for young people building from within.",
+        tag_close: '— New challenges',
+        close_h2: "I'm looking for an operations role at a technology company.",
+        close_body: "If you think it makes sense, or know someone who'd value a profile like this, reach out.",
+        footer_thanks: 'Thanks.',
+        footer_copy: '© 2026 All rights reserved. Made with',
+      },
+    };
+
+    const langToggle = document.getElementById('lang-toggle');
+    const metaDescription = document.querySelector('meta[name="description"]');
+
+    function applyLanguage(lang) {
+      const dict = translations[lang];
+      document.documentElement.lang = lang;
+      document.title = dict.meta_title;
+      metaDescription.setAttribute('content', dict.meta_description);
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (dict[key] !== undefined) el.innerHTML = dict[key];
+      });
+      langToggle.textContent = lang === 'es' ? 'EN' : 'ES';
+      langToggle.setAttribute('aria-label', lang === 'es' ? 'Switch to English' : 'Cambiar a Español');
+      localStorage.setItem('lang', lang);
+    }
+
+    let currentLang = localStorage.getItem('lang') === 'en' ? 'en' : 'es';
+    applyLanguage(currentLang);
+    langToggle.addEventListener('click', () => {
+      currentLang = currentLang === 'es' ? 'en' : 'es';
+      applyLanguage(currentLang);
+    });
   </script>
 </body>
 </html>
