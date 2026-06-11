@@ -4,19 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Martín Salassa</title>
-  <meta name="description" content="Director de Operaciones. 15 años construyendo y escalando empresas." />
+  <meta name="description" content="Hago que tu empresa venda más y gaste menos. 15 años construyendo, expandiendo y vendiendo empresas." />
 
   <!-- Open Graph / previsualización al compartir -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://martinsalassa.com" />
   <meta property="og:title" content="Martín Salassa" />
-  <meta property="og:description" content="Director de Operaciones. 15 años construyendo y escalando empresas." />
+  <meta property="og:description" content="Hago que tu empresa venda más y gaste menos. 15 años construyendo, expandiendo y vendiendo empresas." />
   <meta property="og:image" content="https://martinsalassa.com/hero-graphic.png" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Martín Salassa" />
-  <meta name="twitter:description" content="Director de Operaciones. 15 años construyendo y escalando empresas." />
+  <meta name="twitter:description" content="Hago que tu empresa venda más y gaste menos. 15 años construyendo, expandiendo y vendiendo empresas." />
   <meta name="twitter:image" content="https://martinsalassa.com/hero-graphic.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -266,13 +266,14 @@
     .hero-label {
       font-family: var(--font-body);
       font-size: clamp(1rem,1.8vw,1.25rem); font-weight: 500;
-      color: var(--gray-500); margin-bottom: 32px; line-height: 1.5;
+      color: var(--gray-500); margin-bottom: 48px; line-height: 1.5;
+      max-width: 640px;
     }
     .hero-headline {
       font-family: var(--font-head); font-weight: 900;
       font-size: clamp(40px, calc(5.8vw + 16px), 104px);
       line-height: 1.04; letter-spacing: -.035em;
-      color: var(--black); margin-bottom: 56px;
+      color: var(--black); margin-bottom: 32px;
       text-wrap: balance;
     }
 
@@ -324,152 +325,37 @@
       transform: translateY(-8px) scale(1.01);
     }
 
-    /* ─── Qué hago ───────────────────────────────── */
-    #que-hago { background: var(--white); border-top: 1px solid var(--gray-100); }
-    .intro-text {
-      font-family: var(--font-body);
-      font-size: clamp(1.0625rem,1.6vw,1.1875rem);
-      font-weight: 500; line-height: 1.65;
-      color: var(--black); max-width: 720px;
-      margin-bottom: 40px;
-    }
+    /* ─── Mis últimos resultados ─────────────────── */
+    #mis-resultados { background: var(--black); color: var(--white); }
+    #mis-resultados .section-tag { color: var(--white); }
 
-    /* ─── Acordeón Qué hago ─────────────────────── */
-    .accordion-trigger {
-      background: none; border: none; padding: 0;
-      font-family: var(--font-body); font-size: 1rem; font-weight: 600;
-      color: var(--black); letter-spacing: .01em;
-      cursor: none; margin-top: 32px;
-      display: inline-block;
-      transition: opacity .2s;
-    }
-    .accordion-trigger:hover { opacity: .6; }
-    .accordion-body { margin-top: 28px; }
-
-    /* ─── Dónde puedo sumar ──────────────────────── */
-    #donde-sumo {
-      background: var(--gray-50);
-      border-top: 1px solid var(--gray-100);
-    }
-    .services-list { margin-top: 64px; }
-    .service-row {
-      border-top: 1px solid var(--gray-100);
-      padding: clamp(28px,3.5vw,44px) 0;
-      display: grid;
-      grid-template-columns: 140px clamp(240px,38%,440px) 1fr;
-      gap: 40px; align-items: start;
-      cursor: default; position: relative;
-      transition: padding-left .3s var(--ease-out);
-    }
-    .service-row:last-child { border-bottom: 1px solid var(--gray-100); }
-    .service-row::before {
-      content: ''; position: absolute;
-      left: 0; top: 0; bottom: 0; width: 0;
-      background: var(--black);
-      transition: width .3s var(--ease-out);
-    }
-    .service-row:hover::before { width: 3px; }
-    .service-row:hover { padding-left: 20px; }
-
-    .service-category {
-      font-family: var(--font-body); font-size: .75rem;
-      font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
-      color: var(--gray-300); padding-top: 4px;
-    }
-    .service-title {
-      font-family: var(--font-head); font-weight: 700;
-      font-size: clamp(.9375rem,1.4vw,1.125rem);
-      letter-spacing: -.02em; line-height: 1.3; color: var(--black);
-    }
-    .service-desc {
-      font-family: var(--font-body); font-size: .9375rem;
-      line-height: 1.7; color: var(--gray-500); padding-top: 2px;
-    }
-
-    /* ─── Lo que hice ────────────────────────────── */
-    #lo-que-hice { background: var(--black); color: var(--white); }
-    #lo-que-hice .section-tag { color: var(--gray-700); }
-    #lo-que-hice .big-statement { color: var(--white); margin-bottom: 0; }
-
-    .cases-list { margin-top: 64px; }
-    .case-item {
-      padding: clamp(40px,5vw,64px) 0;
+    .result-item {
+      padding: clamp(36px,4.5vw,56px) 0;
       border-top: 1px solid var(--gray-700);
-      display: grid; grid-template-columns: 1fr auto;
-      gap: 48px; align-items: start;
       transition: opacity .25s; cursor: default;
     }
-    .case-item:last-child { border-bottom: 1px solid var(--gray-700); }
-    .cases-list:hover .case-item       { opacity: .35; }
-    .cases-list:hover .case-item:hover { opacity: 1; }
+    .result-item:last-child { border-bottom: 1px solid var(--gray-700); }
+    .results-list:hover .result-item       { opacity: .35; }
+    .results-list:hover .result-item:hover { opacity: 1; }
 
-    .case-period {
-      font-family: var(--font-body); font-size: .75rem; font-weight: 500;
-      letter-spacing: .1em; text-transform: uppercase;
-      color: var(--gray-500); margin-bottom: 12px;
-    }
-    .case-title {
+    .result-headline {
       font-family: var(--font-head); font-weight: 800;
-      font-size: clamp(1.5rem,3vw,2.5rem);
-      letter-spacing: -.03em; line-height: 1.1;
-      color: var(--white); margin-bottom: 16px;
+      font-size: clamp(1.5rem,3vw,2.25rem);
+      letter-spacing: -.03em; line-height: 1.15;
+      color: var(--white); margin-bottom: 14px;
+      max-width: 800px;
     }
-    .case-desc {
-      font-family: var(--font-body); font-size: 1rem;
-      line-height: 1.7; color: var(--gray-300); max-width: 560px;
-    }
-    .case-metrics {
-      display: flex; flex-direction: column;
-      gap: 28px; padding-top: 4px;
-      min-width: 200px; text-align: right;
-    }
-    .metric { display: flex; flex-direction: column; gap: 5px; }
-    .metric-value {
-      font-family: var(--font-head); font-weight: 800;
-      font-size: clamp(1.5rem,2.5vw,2.25rem);
-      letter-spacing: -.04em; line-height: 1; color: var(--white);
-    }
-    .metric-label {
-      font-family: var(--font-body); font-size: .75rem;
-      font-weight: 400; color: var(--gray-500); letter-spacing: .04em;
-    }
-
-    /* ─── Reconocimiento ─────────────────────────── */
-    #reconocimiento { background: var(--white); border-top: 1px solid var(--gray-100); }
-
-    .award-layout {
-      max-width: 760px;
-    }
-    .award-card {
-      border: 1.5px solid var(--gray-100);
-      border-radius: 8px;
-      padding: clamp(36px,4.5vw,56px);
-      background: var(--white);
-    }
-    .award-year {
-      font-family: var(--font-head); font-weight: 900;
-      font-size: clamp(3rem,6vw,5.5rem);
-      letter-spacing: -.05em; color: var(--gray-100);
-      line-height: 1; margin-bottom: 24px;
-    }
-    .award-name {
-      font-family: var(--font-head); font-weight: 800;
-      font-size: clamp(1.125rem,2.2vw,1.625rem);
-      letter-spacing: -.025em; line-height: 1.2; margin-bottom: 16px;
-    }
-    .award-body {
-      font-family: var(--font-body); font-size: .9375rem;
-      line-height: 1.7; color: var(--gray-500);
-    }
-
-    /* ─── Cierre ─────────────────────────────────── */
-    #cierre { background: var(--gray-50); border-top: 1px solid var(--gray-100); }
-    .closing-text {
+    .result-context {
       font-family: var(--font-body);
-      font-size: clamp(1rem,1.5vw,1.25rem);
-      line-height: 1.7; color: var(--gray-500);
-      max-width: 560px; margin-bottom: 40px;
+      font-size: clamp(.9375rem,1.2vw,1rem);
+      line-height: 1.7; color: var(--gray-300); max-width: 620px;
     }
+
+    /* ─── Qué hago ───────────────────────────────── */
+    #que-hago { background: var(--white); border-top: 1px solid var(--gray-100); }
+
+    /* ─── CTA final ──────────────────────────────── */
+    #hablemos { background: var(--gray-50); border-top: 1px solid var(--gray-100); }
 
     /* ─── Footer ─────────────────────────────────── */
     #footer {
@@ -553,10 +439,6 @@
     }
 
     /* ─── Responsive ─────────────────────────────── */
-    @media (max-width: 1024px) {
-      .service-row { grid-template-columns: 120px 1fr; }
-      .service-desc { grid-column: 2; }
-    }
     @media (max-width: 900px) {
       /* Quién soy mobile: stacked, text first, image below */
       #quien-soy { padding: clamp(60px, 8vw, 100px) var(--pad-x) 0; }
@@ -578,8 +460,6 @@
         width: 100%;
         height: auto;
       }
-      .case-item    { grid-template-columns: 1fr; }
-      .case-metrics { flex-direction: row; flex-wrap: wrap; text-align: left; gap: 32px; }
     }
     @media (max-width: 640px) {
       :root { --header-h: 64px; }
@@ -588,21 +468,13 @@
       /* Hero mobile */
       .hero-label   { margin-bottom: 20px; font-size: .9375rem; }
       .hero-headline { margin-bottom: 40px; letter-spacing: -.025em; }
-      #hero { position: relative; }
+      /* Gráfico en flujo normal: nunca se superpone con el titular */
       .hero-photo-mobile {
         display: block;
-        position: absolute;
-        top: calc(var(--header-h) + 32px);
-        left: 50%;
-        transform: translateX(-50%);
-        width: 220px;
+        width: 200px;
         height: auto;
+        margin: 24px auto;
       }
-
-      /* Service rows: single column, reset grid-column inheritance */
-      .service-row { grid-template-columns: 1fr; gap: 10px; }
-      .service-category { padding-top: 0; }
-      .service-desc { grid-column: 1; }
 
       /* Footer email: fit cleanly on narrow screens */
       .footer-email {
@@ -621,12 +493,6 @@
 
       /* Footer nav: tighter gap on mobile */
       .footer-nav { gap: 8px 24px; }
-
-      /* Cases: tighter metrics row */
-      .case-metrics { gap: 20px; }
-
-      /* About photo: cap height on mobile */
-      .about-photo { aspect-ratio: 4/5; max-width: 100%; }
 
       /* Section padding tighter on mobile */
       section { padding: clamp(60px, 8vw, 100px) var(--pad-x); }
@@ -664,11 +530,9 @@
   <!-- ─── Mobile Menu ───────────────────────── -->
   <nav id="mobile-menu" aria-label="Menú principal" aria-hidden="true">
     <button class="menu-close" id="menu-close" aria-label="Cerrar menú">Cerrar</button>
-    <a href="#quien-soy"   class="mobile-nav-link" data-menu-link>Quién soy</a>
-    <a href="#que-hago"    class="mobile-nav-link" data-menu-link>Qué hago</a>
-    <a href="#donde-sumo"  class="mobile-nav-link" data-menu-link>Dónde sumo</a>
-    <a href="#lo-que-hice" class="mobile-nav-link" data-menu-link>Lo que hice</a>
-    <a href="#reconocimiento" class="mobile-nav-link" data-menu-link>Reconocimiento</a>
+    <a href="#quien-soy"      class="mobile-nav-link" data-menu-link>Quién soy</a>
+    <a href="#que-hago"       class="mobile-nav-link" data-menu-link>Qué hago</a>
+    <a href="#mis-resultados" class="mobile-nav-link" data-menu-link>Mis resultados</a>
     <a href="https://wa.me/5492615981450" target="_blank" rel="noopener noreferrer" class="mobile-nav-link">Hablemos</a>
   </nav>
 
@@ -678,12 +542,12 @@
     <section id="hero" aria-labelledby="hero-heading">
       <img class="hero-photo-mobile" src="hero-graphic.png" alt="" aria-hidden="true">
       <div class="hero-inner">
-        <p class="hero-label reveal">Hola. Soy Martín.</p>
-        <h1 class="hero-headline reveal reveal-delay-1" id="hero-heading">
-          Estoy buscando un nuevo trabajo.
+        <h1 class="hero-headline reveal" id="hero-heading">
+          Hago que tu empresa venda más y gaste menos.
         </h1>
+        <p class="hero-label reveal reveal-delay-1">15 años construyendo, expandiendo a otros mercados y vendiendo empresas. Ahora, sumo esa experiencia a tu empresa.</p>
         <a href="https://wa.me/5492615981450" target="_blank" rel="noopener noreferrer" class="btn-dark reveal reveal-delay-2" aria-label="Contactar a Martín por WhatsApp">
-          Hablemos
+          Tomemos un café
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M2 14L14 2M14 2H4M14 2V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -694,37 +558,52 @@
     <!-- ─── Ticker ────────────────────────── -->
     <div class="ticker-wrap" aria-hidden="true">
       <div class="ticker-track">
-        <span class="ticker-item">Mendoza, Argentina <span class="ticker-sep">·</span></span>
-        <span class="ticker-item">15 años de experiencia <span class="ticker-sep">·</span></span>
+        <span class="ticker-item">Ventas <span class="ticker-sep">·</span></span>
+        <span class="ticker-item">Crecimiento <span class="ticker-sep">·</span></span>
         <span class="ticker-item">Operaciones <span class="ticker-sep">·</span></span>
         <span class="ticker-item">Estrategia de negocio <span class="ticker-sep">·</span></span>
-        <span class="ticker-item">Equipos y liderazgo <span class="ticker-sep">·</span></span>
+        <span class="ticker-item">Equipos <span class="ticker-sep">·</span></span>
+        <span class="ticker-item">Mendoza <span class="ticker-sep">·</span></span>
+        <span class="ticker-item">LATAM <span class="ticker-sep">·</span></span>
         <span class="ticker-item">Startups y pymes <span class="ticker-sep">·</span></span>
-        <span class="ticker-item">Mendoza, Argentina <span class="ticker-sep">·</span></span>
-        <span class="ticker-item">15 años de experiencia <span class="ticker-sep">·</span></span>
+        <span class="ticker-item">Ventas <span class="ticker-sep">·</span></span>
+        <span class="ticker-item">Crecimiento <span class="ticker-sep">·</span></span>
         <span class="ticker-item">Operaciones <span class="ticker-sep">·</span></span>
         <span class="ticker-item">Estrategia de negocio <span class="ticker-sep">·</span></span>
-        <span class="ticker-item">Equipos y liderazgo <span class="ticker-sep">·</span></span>
+        <span class="ticker-item">Equipos <span class="ticker-sep">·</span></span>
+        <span class="ticker-item">Mendoza <span class="ticker-sep">·</span></span>
+        <span class="ticker-item">LATAM <span class="ticker-sep">·</span></span>
         <span class="ticker-item">Startups y pymes <span class="ticker-sep">·</span></span>
       </div>
     </div>
 
-    <!-- ─── Quién soy ─────────────────────── -->
-    <section id="quien-soy" aria-labelledby="quien-soy-heading">
-      <div class="quien-grid">
-        <div class="quien-text">
-          <p class="section-tag reveal">— Quién soy</p>
-          <h2 class="big-statement reveal reveal-delay-1" id="quien-soy-heading">
-            Soy el jugador que conecta las piezas y hace funcionar mejor al equipo.
-          </h2>
-          <div class="body-text reveal reveal-delay-2">
-            <p>Como el volante central en el fútbol.</p>
-            <p>Llevo 15 años metiéndome en empresas y haciendo que funcionen mejor. Arranqué negocios de cero, hice crecer los que ya existían, armé equipos, viví y trabajé en otros países, y vendí una compañía. Aprendí más de los momentos difíciles que de los buenos.</p>
-            <p>No soy especialista en una sola industria. Soy el tipo que entra a un negocio nuevo, entiende rápido cómo funciona, y encuentra dónde está el problema.</p>
-          </div>
-        </div>
-        <div class="quien-photo reveal reveal-delay-3">
-          <img src="Foto4-transparent.png" alt="Martín Salassa" />
+    <!-- ─── Mis últimos resultados ────────── -->
+    <section id="mis-resultados" aria-label="Mis últimos resultados">
+      <div class="container">
+        <p class="section-tag reveal">— Mis últimos resultados</p>
+
+        <div class="results-list" role="list">
+
+          <article class="result-item reveal" role="listitem">
+            <h2 class="result-headline">De USD 20.000 a USD 160.000 por mes.</h2>
+            <p class="result-context">En uno de mis últimos roles como gerente, lideré el proceso que multiplicó la facturación mensual por 6, en 20 meses.</p>
+          </article>
+
+          <article class="result-item reveal reveal-delay-1" role="listitem">
+            <h2 class="result-headline">Más de USD 80.000.000 procesados.</h2>
+            <p class="result-context">El volumen que he gestionado durante mis últimos dos roles.</p>
+          </article>
+
+          <article class="result-item reveal reveal-delay-2" role="listitem">
+            <h2 class="result-headline">De una idea en papel a vender una compañía.</h2>
+            <p class="result-context">Construí una empresa desde cero, la expandí a 5 países y la vendí, creciendo al 40% mensual promedio.</p>
+          </article>
+
+          <article class="result-item reveal reveal-delay-3" role="listitem">
+            <h2 class="result-headline">+50 empresas acompañadas.</h2>
+            <p class="result-context">Negocios y emprendimientos acompañados desde el arranque hasta sus primeros clientes.</p>
+          </article>
+
         </div>
       </div>
     </section>
@@ -733,177 +612,39 @@
     <section id="que-hago" aria-labelledby="que-hago-heading">
       <div class="container">
         <p class="section-tag reveal">— Qué hago</p>
-        <h2 class="big-statement reveal reveal-delay-1" id="que-hago-heading">
-          Lo que cambia cuando estoy.
+        <h2 class="big-statement reveal reveal-delay-1" id="que-hago-heading" style="margin-bottom:0">
+          Me dedico a acelerar las ventas de las empresas con las que trabajo.
         </h2>
-        <p class="intro-text reveal reveal-delay-2">
-          Las piezas de la empresa empiezan a encajar mejor y el dueño puede concentrarse en lo que realmente importa: el futuro del negocio.
-        </p>
-        <div class="reveal reveal-delay-3">
-          <button class="accordion-trigger" id="que-hago-trigger" aria-expanded="false" aria-controls="que-hago-body">
-            Conocer más ↓
-          </button>
-          <div class="body-text accordion-body" id="que-hago-body" hidden>
-            <p>Me aseguro de que todo marche sobre ruedas, desde la estrategia general hasta las tareas del día a día.</p>
-            <p>Me meto en el negocio, entiendo cómo funciona, y busco todos los días cómo hacerlo mejor y más barato. A veces es grande: reorganizar un equipo, cambiar cómo se vende, rediseñar cómo llega el producto al cliente. A veces es chico: una reunión que no debería existir, un proceso que tarda el doble de lo que debería.</p>
-            <p>Superviso proyectos y plazos. Me aseguro de que cada área sepa qué tiene que hacer y para cuándo. Y cuando distintos departamentos necesitan hablar o resolver algo juntos, soy el que hace que esa conversación pase.</p>
+      </div>
+    </section>
+
+    <!-- ─── Quién soy ─────────────────────── -->
+    <section id="quien-soy" aria-labelledby="quien-soy-heading">
+      <div class="quien-grid">
+        <div class="quien-text">
+          <p class="section-tag reveal">— Quién soy</p>
+          <h2 class="big-statement reveal reveal-delay-1" id="quien-soy-heading">
+            Soy Martín Salassa. Llevo 15 años metido en empresas, algunas mías, algunas ajenas.
+          </h2>
+          <div class="body-text reveal reveal-delay-2">
+            <p>Arranqué acá, cofundé la primera incubadora privada de Mendoza y el primer espacio de coworking de la provincia. Después construí una plataforma que operó en 5 países y la vendí. Me tocó vivir y trabajar en otros países, pero siempre decidí volver a Mendoza. Cuando el Consejo Empresario Mendocino me distinguió como Joven Mendocino Destacado del Año, supe que no me había equivocado.</p>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- ─── Dónde puedo sumar ─────────────── -->
-    <section id="donde-sumo" aria-labelledby="donde-sumo-heading">
-      <div class="container">
-        <p class="section-tag reveal">— Dónde puedo sumar</p>
-        <h2 class="big-statement reveal reveal-delay-1" id="donde-sumo-heading" style="max-width:700px">
-          Los problemas que puedo ayudar a resolver.
-        </h2>
-
-        <div class="services-list" role="list">
-
-          <article class="service-row reveal" role="listitem">
-            <span class="service-category">Administración</span>
-            <h3 class="service-title">Cuando el dueño está en todo y no es fácil delegar.</h3>
-            <p class="service-desc">El negocio creció, pero todo sigue pasando por una sola persona. Entro, ordeno, y armo la estructura para que el equipo pueda funcionar solo.</p>
-          </article>
-
-          <article class="service-row reveal reveal-delay-1" role="listitem">
-            <span class="service-category">Finanzas</span>
-            <h3 class="service-title">Cuando no está claro cuánto se gana ni por qué.</h3>
-            <p class="service-desc">Se trabaja mucho pero los números no cierran como deberían. Reviso cómo está armado el negocio, dónde se pierde plata, y qué se puede mejorar.</p>
-          </article>
-
-          <article class="service-row reveal reveal-delay-2" role="listitem">
-            <span class="service-category">Ventas</span>
-            <h3 class="service-title">Cuando se vende, pero sin método ni estructura.</h3>
-            <p class="service-desc">Hay clientes, pero el proceso de venta depende de las personas y no de un sistema. Armo la estructura para que las ventas sean predecibles y escalables.</p>
-          </article>
-
-          <article class="service-row reveal reveal-delay-3" role="listitem">
-            <span class="service-category">Tecnología</span>
-            <h3 class="service-title">Cuando nadie sabe cómo aplicar tecnología e inteligencia artificial.</h3>
-            <p class="service-desc">Todo el mundo habla del tema pero nadie da el primer paso. Ayudo a identificar dónde tiene sentido aplicarlo y cómo hacerlo de forma simple y concreta.</p>
-          </article>
-
-          <article class="service-row reveal reveal-delay-4" role="listitem">
-            <span class="service-category">Equipo</span>
-            <h3 class="service-title">Cuando los equipos no rinden lo que deberían.</h3>
-            <p class="service-desc">Cada área hace lo suyo pero nadie mira el conjunto. Defino roles, establezco objetivos claros, y hago que los equipos trabajen en la misma dirección.</p>
-          </article>
-
+        <div class="quien-photo reveal reveal-delay-3">
+          <img src="Foto4-transparent.png" alt="Martín Salassa" />
         </div>
       </div>
     </section>
 
-    <!-- ─── Lo que hice ───────────────────── -->
-    <section id="lo-que-hice" aria-labelledby="lo-que-hice-heading">
+    <!-- ─── CTA final ─────────────────────── -->
+    <section id="hablemos" aria-labelledby="hablemos-heading">
       <div class="container">
-        <p class="section-tag reveal">— Experiencia</p>
-        <h2 class="big-statement reveal reveal-delay-1" id="lo-que-hice-heading">
-          Lo que hice.
+        <p class="section-tag reveal">— Hablemos</p>
+        <h2 class="big-statement reveal reveal-delay-1" id="hablemos-heading" style="max-width:760px">
+          Si te interesa, hablemos y veamos si tiene sentido hacer algo juntos.
         </h2>
-
-        <div class="cases-list" role="list">
-
-          <!-- Case 1 — Global Fan -->
-          <article class="case-item reveal" role="listitem">
-            <div class="case-body">
-              <p class="case-period">2024 — 2026</p>
-              <h3 class="case-title">Global Fan</h3>
-              <p class="case-desc">Fui Director de Operaciones en una empresa de tecnología. En menos de dos años, la convertimos en líder de su industria.</p>
-            </div>
-            <div class="case-metrics" aria-label="Métricas de Global Fan">
-              <div class="metric">
-                <span class="metric-value" data-target="598" data-prefix="+" data-suffix="%">+598%</span>
-                <span class="metric-label">en transacciones</span>
-              </div>
-              <div class="metric">
-                <span class="metric-value" data-target="563" data-prefix="+" data-suffix="%">+563%</span>
-                <span class="metric-label">en facturación</span>
-              </div>
-              <div class="metric">
-                <span class="metric-value" data-target="1370" data-prefix="+" data-suffix="%">+1.370%</span>
-                <span class="metric-label">en contratos firmados</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Case 2 — Cárbula -->
-          <article class="case-item reveal reveal-delay-1" role="listitem">
-            <div class="case-body">
-              <p class="case-period">2018 — 2024</p>
-              <h3 class="case-title">Cárbula</h3>
-              <p class="case-desc">Cofundé una plataforma de compraventa de autos que terminó operando en cinco países. La construí de cero: armé los equipos, negocié con socios en cada mercado, conseguimos inversión, y la vendí en 2024.</p>
-            </div>
-            <div class="case-metrics" aria-label="Métricas de Cárbula">
-              <div class="metric">
-                <span class="metric-value" data-target="50" data-prefix="USD " data-suffix="M">USD 50M</span>
-                <span class="metric-label">en transacciones</span>
-              </div>
-              <div class="metric">
-                <span class="metric-value" data-target="100" data-prefix="" data-suffix="">100</span>
-                <span class="metric-label">autos vendidos por mes</span>
-              </div>
-              <div class="metric">
-                <span class="metric-value" data-target="40" data-prefix="" data-suffix="%">40%</span>
-                <span class="metric-label">de crecimiento mensual sostenido</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Case 3 — Antes de todo eso -->
-          <article class="case-item reveal reveal-delay-2" role="listitem">
-            <div class="case-body">
-              <p class="case-period">2015 — 2020</p>
-              <h3 class="case-title">Antes de todo eso</h3>
-              <p class="case-desc">Cofundé la primera incubadora privada de empresas de Mendoza, donde acompañé a más de 200 equipos a lanzar sus negocios. Y cofundé el primer espacio de coworking de la provincia, cuando nadie sabía todavía qué era eso.</p>
-            </div>
-            <div class="case-metrics" aria-label="Métricas período inicial">
-              <div class="metric">
-                <span class="metric-value" data-target="200" data-prefix="+" data-suffix="">+200</span>
-                <span class="metric-label">equipos entrenados</span>
-              </div>
-              <div class="metric">
-                <span class="metric-value" data-target="50" data-prefix="+" data-suffix="">+50</span>
-                <span class="metric-label">empresas financiadas</span>
-              </div>
-              <div class="metric">
-                <span class="metric-value" data-target="3" data-prefix="" data-suffix="">3</span>
-                <span class="metric-label">reconocimientos nacionales</span>
-              </div>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ─── Reconocimiento ────────────────── -->
-    <section id="reconocimiento" aria-labelledby="reconocimiento-heading">
-      <div class="container">
-        <p class="section-tag reveal">— Reconocimiento</p>
-        <div class="award-layout">
-          <div class="award-card reveal reveal-delay-1">
-            <h2 class="award-name" id="reconocimiento-heading">Joven Mendocino Destacado del Año</h2>
-            <p class="award-body">El Consejo Empresario Mendocino me reconoció en la categoría Liderazgo, compromiso y desarrollo empresarial. El principal premio empresarial de la provincia para jóvenes que construyen desde adentro.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ─── Cierre ────────────────────────── -->
-    <section id="cierre" aria-labelledby="cierre-heading">
-      <div class="container">
-        <p class="section-tag reveal">— Nuevos desafíos</p>
-        <h2 class="big-statement reveal reveal-delay-1" id="cierre-heading" style="max-width:700px">
-          Estoy buscando un nuevo trabajo.
-        </h2>
-        <p class="closing-text reveal reveal-delay-2">
-          Con ganas de meterme en algo concreto y dejarlo mejor de lo que lo encontré. Si creés que tiene sentido sumarme a tu empresa, o conocés a alguien a quien le pueda servir un perfil como el mío, escribime.
-        </p>
-        <a href="https://wa.me/5492615981450" target="_blank" rel="noopener noreferrer" class="btn-dark reveal reveal-delay-3" aria-label="Contactar a Martín por WhatsApp">
-          Hablemos
+        <a href="https://wa.me/5492615981450" target="_blank" rel="noopener noreferrer" class="btn-dark reveal reveal-delay-2" aria-label="Contactar a Martín por WhatsApp">
+          Tomemos un café
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M2 14L14 2M14 2H4M14 2V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -927,9 +668,8 @@
             <ul class="footer-nav">
               <li><a href="#quien-soy">Quién soy</a></li>
               <li><a href="#que-hago">Qué hago</a></li>
-              <li><a href="#donde-sumo">Dónde sumo</a></li>
-              <li><a href="#lo-que-hice">Lo que hice</a></li>
-              <li><a href="#reconocimiento">Reconocimiento</a></li>
+              <li><a href="#mis-resultados">Mis resultados</a></li>
+              <li><a href="#hablemos">Hablemos</a></li>
             </ul>
           </nav>
           <p class="footer-phone">+54 9 261 5981450</p>
@@ -1035,48 +775,6 @@
     }, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-    /* ─── Acordeón ──────────────────────── */
-    const trigger = document.getElementById('que-hago-trigger');
-    const body    = document.getElementById('que-hago-body');
-    trigger.addEventListener('click', () => {
-      const open = trigger.getAttribute('aria-expanded') === 'true';
-      if (open) {
-        body.hidden = true;
-        trigger.setAttribute('aria-expanded', 'false');
-        trigger.textContent = 'Conocer más ↓';
-      } else {
-        body.hidden = false;
-        trigger.setAttribute('aria-expanded', 'true');
-        trigger.textContent = 'Cerrar ↑';
-      }
-    });
-
-    /* ─── KPI counter ────────────────────── */
-    const easeOut = t => 1 - Math.pow(1 - t, 3);
-    const animateCounter = el => {
-      const target   = parseInt(el.dataset.target, 10);
-      const prefix   = el.dataset.prefix || '';
-      const suffix   = el.dataset.suffix || '';
-      const duration = Math.min(1800, 600 + target * .8);
-      const start    = performance.now();
-      const fmt = n => n >= 1000 ? n.toLocaleString('es-AR') : String(n);
-      const tick = now => {
-        const p = Math.min((now - start) / duration, 1);
-        el.textContent = prefix + fmt(Math.round(easeOut(p) * target)) + suffix;
-        if (p < 1) requestAnimationFrame(tick);
-      };
-      requestAnimationFrame(tick);
-    };
-    new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { animateCounter(e.target); } });
-    }, { threshold: .5 })
-    .observe; // placeholder — real observer below
-    const counterObs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { animateCounter(e.target); counterObs.unobserve(e.target); }
-      });
-    }, { threshold: .5 });
-    document.querySelectorAll('.metric-value[data-target]').forEach(el => counterObs.observe(el));
   </script>
 </body>
 </html>
