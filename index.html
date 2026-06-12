@@ -368,15 +368,21 @@
       flex: 1;
       padding: 28px 24px 0 0;
       border-top: 1px solid var(--gray-700);
+      cursor: default;
+      transition: opacity .7s var(--ease-out), transform .7s var(--ease-out), filter .25s ease;
     }
+    .how-steps:hover .how-step       { filter: opacity(.35); }
+    .how-steps:hover .how-step:hover { filter: opacity(1); }
     .how-step::before {
       content: '';
       position: absolute; top: -1px; left: 0;
       width: 100%; height: 1px;
       background: var(--white);
       transform: scaleX(0); transform-origin: left;
-      transition: transform .8s var(--ease-out);
+      transition: transform .8s var(--ease-out), height .25s ease;
     }
+    .how-step:hover::before { height: 2px; }
+    .how-step:hover .how-number { color: var(--white); }
     .how-step.visible::before { transform: scaleX(1); }
     .how-step:nth-child(1) { transition-delay: 0s; }
     .how-step:nth-child(1)::before { transition-delay: 0s; }
@@ -401,7 +407,9 @@
       font-size: clamp(1.0625rem,1.6vw,1.25rem);
       letter-spacing: -.02em; line-height: 1.3;
       color: var(--white);
+      transition: transform .3s var(--ease-out);
     }
+    .how-step:hover .how-title { transform: translateX(6px); }
     .how-step-emphasis .how-number { color: var(--white); }
     .how-step-emphasis .how-title  {
       font-weight: 800;
