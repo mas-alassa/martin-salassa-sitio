@@ -375,9 +375,14 @@
       width: 100%; height: 1px;
       background: var(--white);
       transform: scaleX(0); transform-origin: left;
-      transition: transform .7s var(--ease-out);
+      transition: transform .8s var(--ease-out);
     }
     .how-step.visible::before { transform: scaleX(1); }
+    .how-step:nth-child(1)::before { transition-delay: 0s; }
+    .how-step:nth-child(2)::before { transition-delay: .15s; }
+    .how-step:nth-child(3)::before { transition-delay: .3s; }
+    .how-step:nth-child(4)::before { transition-delay: .45s; }
+    .how-step:nth-child(5)::before { transition-delay: .6s; }
     .how-step:first-child { padding-left: 0; }
     .how-step:last-child  { padding-right: 0; }
     .how-number {
@@ -392,7 +397,6 @@
       letter-spacing: -.02em; line-height: 1.3;
       color: var(--white);
     }
-    .how-step-emphasis::before { height: 2px; }
     .how-step-emphasis .how-number { color: var(--white); }
     .how-step-emphasis .how-title  {
       font-weight: 800;
@@ -519,10 +523,14 @@
         transform: scaleY(0); transform-origin: top;
       }
       .how-step.visible::before { transform: scaleY(1); }
+      .how-step:nth-child(1)::before { transition-delay: 0s; }
+      .how-step:nth-child(2)::before { transition-delay: .15s; }
+      .how-step:nth-child(3)::before { transition-delay: .3s; }
+      .how-step:nth-child(4)::before { transition-delay: .45s; }
+      .how-step:nth-child(5)::before { transition-delay: .6s; }
       .how-step:first-child { padding-left: 24px; }
       .how-step:last-child   { padding-bottom: 0; }
       .how-step-emphasis { border-left: 1px solid var(--gray-700); }
-      .how-step-emphasis::before { width: 2px; height: 100%; }
     }
     @media (max-width: 640px) {
       :root { --header-h: 64px; }
